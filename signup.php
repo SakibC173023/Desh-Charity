@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <link href="assets/css/style.css" rel='stylesheet' type='text/css' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--webfonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700' rel='stylesheet' type='text/css'>
     <!--//webfonts-->
@@ -26,7 +25,7 @@
 <header class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand h3 fw-bold" href="index.html"><i
+            <a class="navbar-brand h3 fw-bold" href="index.php"><i
                     class="fas fa-hand-holding-heart  fs-1 ps-lg-5" style="color: red"></i> Desh Charity</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -36,10 +35,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 pe-5 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="signup.html">Sign Up</a>
+                        <a class="nav-link" href="signup.php">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
                 </ul>
 
@@ -51,50 +50,33 @@
 <!-----start-main---->
 <div class="login-form">
     <h1>Sign Up</h1>
-    <form>
+    <form action="login/Includes/signup_validation.php" method="post">
         <li>
             <label>
-                <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value === '') {this.value = 'Email';}" >
+                <input type="text" name="email" class="text" value="Email">
             </label><a href="#" class=" icon user"></a>
         </li>
         <li>
             <label>
-                <input type="text" class="text" value="Password" onfocus="this.value = '';" onblur="if (this.value === '') {this.value = 'Password';}">
+                <input type="password" name="pass" class="text" value="Password">
             </label><a href="#" class=" icon lock"></a>
         </li>
-
         <li>
             <label>
-                <input type="text" class="text" value="Confirm Pass" onfocus="this.value = '';" onblur="if (this.value === '') {this.value = 'Confirm Password';}">
+                <input type="password" name="rpass" class="text" value="Confirm Pass">
             </label><a href="#" class=" icon lock"></a>
         </li>
-
-
         <div class ="forgot">
-
-            <input type="submit" onclick="myFunction()" value="Sign Up" > <a href="#" class=" icon arrow"></a>                                                                                                                                                                                                                                 </h4>
+            <input type="submit" name="submit" value="Sign Up"> <a href="#" class=" icon arrow"><a>                                                                 
         </div>
     </form>
 </div>
 <!--//End-login-form-->
 
 
-<div class="ad728x90" style="text-align:center">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- w3layouts_demo_728x90 -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:728px;height:90px"
-         data-ad-client="ca-pub-9153409599391170"
-         data-ad-slot="8639520288"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-
-
 <!-----start-copyright---->
 <div class="copy-right">
-    <p style="color: deepskyblue">Design by <a href="http://w3layouts.com" >Desh Charity</a></p>
+    <p style="color: #00bfff">Design by <a href="http://w3layouts.com" >Desh Charity</a></p>
 </div>
 <!-----//end-copyright---->
 

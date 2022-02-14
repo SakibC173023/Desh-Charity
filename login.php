@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +11,6 @@
         <meta charset="utf-8">
         <link href="assets/css/style.css" rel='stylesheet' type='text/css' />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script
-            type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <!--webfonts-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700' rel='stylesheet'
             type='text/css'>
@@ -38,11 +41,19 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 pe-5 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="signup.html">Sign Up</a>
+                                <a class="nav-link" href="signup.php">Sign Up</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html">Login</a>
-                            </li>
+                            <?php
+                                if(isset($_SESSION['username'])){
+                                    echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"logout.php\">Logout</a>
+                                </li>";
+                                }else{
+                                    echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"login.php\">Login</a>
+                                </li>";
+                                }
+                            ?>
                         </ul>
 
                     </div>
@@ -50,44 +61,26 @@
             </nav>
         </header>
         <!-- //header -->
+
         <!-----start-main---->
         <div class="login-form">
-            <h1>Sign In</h1>
-            <form>
+            <h1>Login</h1>
+            <form action="login/Includes/login_validation.php" method="post">
                 <li>
-                    <label>
-                        <input type="text" class="text" value="Email" onfocus="this.value = '';"
-                            onblur="if (this.value === '') {this.value = 'Email';}">
-                    </label><a href="#" class=" icon user"></a>
-                </li>
-                <li>
-                    <label>
-                        <input type="password" value="Password" onfocus="this.value = '';"
-                            onblur="if (this.value === '') {this.value = 'Password';}">
-                    </label><a href="#" class=" icon lock"></a>
-                </li>
-
+                    <label>Email</label>
+                    <input type="text" name="email" required><a href="#" class=" icon user"></a>
+                </li>          
+                <li>          
+                    <label>Password</label>
+                    <input type="text" name="pass" required><a href="#" class=" icon lock"></a>
+                </li> 
                 <div class="forgot">
+                    <input type="submit" name="submit" value="Login"> <a href="#" class=" icon arrow"></a>
                     <h3><a href="#">Forgot Password?</a></h3>
-                    <input type="submit" onclick="myFunction()" value="Login"> <a href="#" class=" icon arrow"></a>
-                    </h4>
                 </div>
             </form>
         </div>
         <!--//End-login-form-->
-
-
-        <div class="ad728x90" style="text-align:center">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- w3layouts_demo_728x90 -->
-            <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
-                data-ad-client="ca-pub-9153409599391170" data-ad-slot="8639520288"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-
         <!-----start-copyright---->
         <div class="copy-right">
             <p style="color: deepskyblue">Design by <a href="http://w3layouts.com">Desh Charity</a></p>

@@ -50,9 +50,17 @@
                                     <li><a class="dropdown-item" href="#">Not Added Yet</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html">Log In</a>
-                            </li>
+                            <?php
+                                if(isset($_SESSION['username'])){
+                                    echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"login/logout.php\">Logout</a>
+                                </li>";
+                                }else{
+                                    echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"login.php\">Login</a>
+                                </li>";
+                                }
+                            ?>
                         </ul>
                     </div>
                 </div>
