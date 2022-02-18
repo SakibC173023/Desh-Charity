@@ -3,21 +3,19 @@ include_once '..\Includes/dbh_connect.php';
 $id = $_GET['id'];
 if(isset($_POST['submit']))
 {
-
-        $user = $_POST['user'];
         $email = $_POST['email'];
         $pass = $_POST['pass'];
 
-    $sql = "SELECT * FROM login_data WHERE username = '$user'";
+    $sql = "SELECT * FROM users WHERE userEmail = '$email'";
     $stmt = connect()->query($sql);
     $row = $stmt->fetch();
 
-    if($user == $row['username'])
+    if($email == $row['userEmail'])
     {
         header('location:edit_data.php');
     }else
     {
-        $sql = "UPDATE login_data SET username = '$user',email = '$email',password = '$pass' WHERE id = '$id'";
+        $sql = "UPDATE users SET userEmail = '$email', userPass = '$pass' WHERE userEmail = '$email'";
         $stmt = connect()->query($sql);
         header('location:admin.php');
     }
@@ -41,10 +39,6 @@ if(isset($_POST['submit']))
             <div class="col-md-6 login_area">
                 <h2>Data Update</h2>
                 <form method="POST">
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" name="user" class="form-control" required placeholder="Username">
-                    </div>
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" name="email" class="form-control" required placeholder="Email">

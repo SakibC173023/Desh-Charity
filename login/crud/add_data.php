@@ -3,24 +3,20 @@ include_once '../Includes/dbh_connect.php';
 
 if (isset($_POST['submit']))
 {
-    $user = $_POST['user'];
     $email = $_POST['email'];
     $pass = $_POST['pass'];
 
-    $src = "SELECT * FROM login_data WHERE username = '$user'";
+    $src = "SELECT * FROM users WHERE userEmail = '$email'";
     $stmt = connect()->query($src);
     $row = $stmt->fetch();
 
-    if($row['username'] == $user)
-        {
-            header('location:admin.php?error=userTaken');
+    if($row['userEmail'] == $email && $row['userPass'] == $pass){
+        header('location:admin.php?error=userTaken');
         }
-    else
-    {
-        $add = "INSERT INTO login_data(username,email,password) VALUES(?,?,?)";
+    else{
+        $add = "INSERT INTO users(userEmail,userPass) VALUES(?,?)";
         $stmt = connect()->prepare($add);
-        $stmt->execute([$user,$email,$pass]);
-
+        $stmt->execute([$email,$pass]);
         header('location:admin.php?value=success');
     }
 }
@@ -42,10 +38,6 @@ if (isset($_POST['submit']))
             <div class="col-md-6 login_area">
                 <h2>Data Update</h2>
                 <form method="POST">
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" name="user" class="form-control" required placeholder="Username">
-                    </div>
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" name="email" class="form-control" required placeholder="Email">

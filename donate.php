@@ -9,10 +9,20 @@
         <!-- contact block -->
     <section class="contact py-5" id="contact">
         <h1 class="header-agileits w3 w3l agile-info">Donation Form</h1>
-
+        <p>
+            <?php
+                if (isset($_GET['error']) == 'already-submitted')
+                {
+                    echo "Your donation already submitted";
+                }elseif (isset($_GET['value']) == 'success')
+                {
+                    echo "Donation request sent successfully";
+                }
+            ?>
+        </p>
         <div class="content">
             <div class="form-w3layouts">
-                <form action="#" method="post">
+                <form action="donation-validation.php" method="POST">
                     <div class="form-control">
                         <label class="header">Name <span>*</span> </label>
                         <input type="text" id="name" name="name" placeholder="Your Name" title="Please enter your Full Name" required="">
@@ -27,39 +37,33 @@
 
                     <div class="form-control">
                         <label class="header">Address <span>*</span> </label>
-                        <input type="text" id="bill" name="bill" placeholder="Address" title="Please enter Your Address" required="">
+                        <input type="text" id="bill" name="address" placeholder="Address" title="Please enter Your Address" required="">
                         <div class="clear"></div>
                     </div>
 
                     <div class="form-control">
                         <label class="header">Phone Number <span>*</span> </label>
-                        <input type="tel" id="usrtel" name="usrtel" placeholder="Your Phone Number" title="Please enter Your Phone Number" required="">
+                        <input type="tel" id="usrtel" name="phone" placeholder="Your Phone Number" title="Please enter Your Phone Number" required="">
                         <div class="clear"></div>
                     </div>
                     <div class="form-control">
                         <label class="header">Donation Type <span>*</span> </label>
-                        <input type="tel" id="usrtel" name="usrtel" placeholder="Clothes or Food" title="Please enter Your Amount" required="">
-                        <div class="clear"></div>
-                    </div>
-                    <div class="form-control">
-                        <label class="header">Donation Quantity <span>*</span> </label>
-                        <input type="tel" id="usrtel" name="usrtel" placeholder="" title="Please enter Your Amount" required="">
+                        <input type="tel" id="usrtel" name="dType" placeholder="Clothes or Food" title="Please enter Your Amount" required="">
                         <div class="clear"></div>
                     </div>
                     <div class="form-control">
                         <label class="enquiry">Donation comments <span>*</span> </label>
-                        <textarea id="message" name="message" placeholder="Your Queries" title="Please enter Your Queries"></textarea>
+                        <textarea id="message" name="comments" placeholder="Your Queries" title="Please enter Your Queries"></textarea>
                         <div class="clear"></div>
                     </div>
                     <div class="form-control">
                         <label class="enquiry">Product Image <span>*</span></label> <br>
                         <label for="myfile">Select a file:</label>
-                        <input type="file" id="myfile" name="myfile"><br>
+                        <input type="file" id="myfile" name="file"><br>
                     </div>
 
-
                     <div class="form-control">
-                        <input type="submit" class="register" value="Send">
+                        <input type="submit" name="submit" class="register" value="Send">
                         <div class="clear"></div>
                     </div>
                 </form>

@@ -14,25 +14,23 @@ include_once '../Includes/dbh_connect.php';
     <table border="1" style="margin-left: 350px;margin-top: 100px">
     <tr>
         <th>id</th>
-        <th>Username</th>
         <th>Email</th>
         <th>Password</th>
         <th>Update</th>
         <th>Delete</th>
     </tr>
         <?php
-        $sql = "SELECT * FROM login_data";
+        $sql = "SELECT * FROM users";
         $stmt = connect()->query($sql);
         while($row = $stmt->fetch())
         {
         ?>
         <tr>
-            <td><?php echo $row['id'] ?></td>
-            <td><?php echo $row['username'] ?></td>
-            <td><?php echo $row['email'] ?></td>
-            <td><?php echo $row['password'] ?></td>
-            <td><a href="edit_data.php?id=<?php echo $row['id'] ?>">Update</a></td>
-            <td><a href="delete_data.php?id=<?php echo $row['id'] ?>">Delete</a></td>
+            <td><?php echo $row['userID'] ?></td>
+            <td><?php echo $row['userEmail'] ?></td>
+            <td><?php echo $row['userPass'] ?></td>
+            <td><a href="edit_data.php?id=<?php echo $row['userID'] ?>">Update</a></td>
+            <td><a href="delete_data.php?id=<?php echo $row['userID'] ?>">Delete</a></td>
 
         </tr>
             <?php
@@ -49,8 +47,5 @@ include_once '../Includes/dbh_connect.php';
     </table>
 
     <button type="submit" name="submit" class="btn btn-primary" style="margin-left: 350px;margin-top: 30px"><a style="color: white;text-decoration: none" href="add_data.php">Add Data</a></button>
-
-
-
 </body>
 </html>
