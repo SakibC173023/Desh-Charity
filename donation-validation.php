@@ -9,7 +9,15 @@ if(isset($_POST['submit'])){
     $phone = $_POST['phone'];
     $dType = $_POST['dType'];
     $comments = $_POST['comments'];
-    $file = $_POST['file'];
+
+    $var1 = rand(1111,9999);
+    $var2 = md5($var1);
+
+    $fileName = $_FILES['image']['name'];
+    $dstFolder = 'assets/donation-images/'.$var2.$fileName;
+    $dstDb = 'assets/donation-images/'.$var2.$fileName;
+
+    move_uploaded_file($_FILES['image']['tmp_name'],$dstFolder);
 
     $search = "SELECT * FROM donation WHERE donorEmail = '$email'";
     $stmt = connect()->query($search);
@@ -21,7 +29,7 @@ if(isset($_POST['submit'])){
     else{
         $sql = "INSERT INTO donation(donorName,donorEmail,donorAddress,donorPhone,donationType,comments,image) VALUES(?,?,?,?,?,?,?)";
         $stmt = connect()->prepare($sql);
-        $stmt->execute([$name,$email,$address,$phone,$dType,$comments,$file]);
+        $stmt->execute([$name,$email,$address,$phone,$dType,$comments,$dstDb]);
         header('location:donate.php?value=success');
     }
 }

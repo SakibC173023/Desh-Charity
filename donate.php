@@ -2,6 +2,20 @@
     <!-- Nav-bar Star-->
     <?php 
     include_once 'nav-bar.php';
+    if (isset($_GET['error']) == 'already-submitted'){
+        ?>
+        <script>
+            alert('Your donation already submitted');
+        </script>
+        <?php
+    }
+    elseif (isset($_GET['value']) == 'success'){
+        ?>
+        <script>
+            alert('Your request has been submitted successfully');
+        </script>
+        <?php
+    }
     ?>
     <!-- Nav-bar End -->
 
@@ -9,20 +23,9 @@
         <!-- contact block -->
     <section class="contact py-5" id="contact">
         <h1 class="header-agileits w3 w3l agile-info">Donation Form</h1>
-        <p>
-            <?php
-                if (isset($_GET['error']) == 'already-submitted')
-                {
-                    echo "Your donation already submitted";
-                }elseif (isset($_GET['value']) == 'success')
-                {
-                    echo "Donation request sent successfully";
-                }
-            ?>
-        </p>
         <div class="content">
             <div class="form-w3layouts">
-                <form action="donation-validation.php" method="POST">
+                <form action="donation-validation.php" method="POST" enctype="multipart/form-data">
                     <div class="form-control">
                         <label class="header">Name <span>*</span> </label>
                         <input type="text" id="name" name="name" placeholder="Your Name" title="Please enter your Full Name" required="">
@@ -59,7 +62,7 @@
                     <div class="form-control">
                         <label class="enquiry">Product Image <span>*</span></label> <br>
                         <label for="myfile">Select a file:</label>
-                        <input type="file" id="myfile" name="file"><br>
+                        <input type="file" id="myfile" name="image"><br>
                     </div>
 
                     <div class="form-control">
