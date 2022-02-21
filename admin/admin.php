@@ -1,5 +1,12 @@
 <?php
 include_once '../login/Includes/dbh_connect.php';
+    $status = $_GET['error'];
+    if($status == 'already-approved'){
+        echo "<script>alert('Already Approved')</script>";
+    }elseif($status == 'already-rejected'){
+        echo "<script>alert('Already Rejected')</script>";
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,10 +55,10 @@ include_once '../login/Includes/dbh_connect.php';
     <main class="container-fluid">
         <h3 class="mt-5 pt-5">All Donation Requests</h3>
             <section>
-                <div class="row gap-5">
+                <div class="row gap-3">
                     
                     <!-- Donation Request Part -->
-                    <div class="col-8">
+                    <div class="col-8 m-auto">
                         <table class="table table-dark">
                             <tr class="text-center table-active">
                                 <th>Donor Name</th>
@@ -93,7 +100,7 @@ include_once '../login/Includes/dbh_connect.php';
                     </div>
 
                     <!-- Summary Part -->
-                    <div class="col-3">
+                    <div class="col-3 mx-auto">
                         <h2>Summary</h2>
                         <table class="table table-dark table-striped">
                             <tr>
@@ -103,16 +110,22 @@ include_once '../login/Includes/dbh_connect.php';
                             </tr>
                             <tr class="table-active">
                             <?php
-                                $sql = "SELECT * FROM approved_donation";
-                                $stmt = connect()->query($sql);
+                                $approvedSql = "SELECT * FROM approved_donation";
+                                $rejectedSql = "SELECT * FROM rejected_donation";
+                                $approvedStmt = connect()->query($approvedSql);
+                                $rejectedStmt = connect()->query($rejectedSql);
                                 $approvedCount = 0;
-                                while($row = $stmt->fetch()){
+                                $rejectedCount = 0;
+                                while($row = $approvedStmt->fetch()){
                                     $approvedCount++;
+                                }
+                                while($row = $rejectedStmt->fetch()){
+                                    $rejectedCount++;
                                 }
                             ?>
                                 <td><?php echo $reqCount ?></td>
                                 <td><?php echo $approvedCount ?></td>
-                                <td><?php echo $approvedCount ?></td>
+                                <td><?php echo $rejectedCount ?></td>
                             </tr>
                         </table>
                     </div>
@@ -146,18 +159,17 @@ include_once '../login/Includes/dbh_connect.php';
                     </div>
 
                     <!-- Rejected Request Part -->
-                    <div class="col-5 m-auto">
+                    <div class="col-5 mx-auto">
                         <h2>Rejected Logs</h2>
                         <table class="table table-dark table-striped">
                             <tr>
                                 <th>Name</th>
                                 <th>Phone</th>
-                                <th>Address</th>   
-                                <th>Status</th>   
+                                <th>Address</th>     
                             </tr>
                             <tr class="table-active">
                             <?php
-                                $sql = "SELECT * FROM approved_donation";
+                                $sql = "SELECT * FROM rejected_donation";
                                 $stmt2 = connect()->query($sql);
                                 while($row = $stmt2->fetch())
                                 {
@@ -165,7 +177,6 @@ include_once '../login/Includes/dbh_connect.php';
                                 <td><?php echo $row['Name'] ?></td>
                                 <td><?php echo $row['Phone'] ?></td>
                                 <td><?php echo $row['Address'] ?></td>
-                                <td><?php echo $row['Status'] ?></td>
                             </tr>
                             <?php
                                 }

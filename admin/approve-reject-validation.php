@@ -9,10 +9,20 @@ if($status == 'approved'){
     $row = $stmt->fetch();
 
     if($row > 0){
+        $sql = "SELECT * FROM approved_donation";
+        $stmt = connect()->query($sql);
+        while($result = $stmt->fetch())
+        {
+            if($result['Name'] == $row['donorName'] && $result['Phone'] == $row['donorPhone']){
+                header('location:admin.php?error=already-approved');
+                die(); 
+            }
+        }
         $sql = "INSERT INTO approved_donation(Name,Phone,Address,Status) VALUES(?,?,?,?)";
         $stmt = connect()->prepare($sql);
         $stmt->execute([$row['donorName'],$row['donorPhone'],$row['donorAddress'],'Not Collected Yet']);
-        header('location:admin.php');
+        header('location:admin.php');    
+    
     }
 }
 elseif($status == 'rejected'){
@@ -22,9 +32,18 @@ elseif($status == 'rejected'){
     $row = $stmt->fetch();
 
     if($row > 0){
-        $sql = "DELETE FROM donation WHERE donateID = ?";
+        $sql = "SELECT * FROM rejected_donation";
+        $stmt = connect()->query($sql);
+        while($result = $stmt->fetch())
+        {
+            if($result['Name'] == $row['donorName'] && $result['Phone'] == $row['donorPhone']){
+                header('location:admin.php?error=already-rejected');
+                die(); 
+            }
+        }
+        $sql = "INSERT INTO rejected_donation(Name,Phone,Address) VALUES(?,?,?)";
         $stmt = connect()->prepare($sql);
-        $stmt->execute([$id]);
-        header('location:admin.php');
+        $stmt->execute([$row['donorName'],$row['donorPhone'],$row['donorAddress']]);
+        header('location:admin.php');    
     }
 }
