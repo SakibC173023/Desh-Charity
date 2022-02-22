@@ -203,7 +203,7 @@ if (isset($_POST['add'])) {
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Water bottle - 2L</p>
-                            <button type="button" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"><a class=" " href="package.html" target="_blank">Choose Plan</a></button>
+                            <button type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"><a class=" " href="package.php?status=fp" target="_blank">Choose Plan</a></button>
                         </div>
                     </div>
                 </div>
@@ -244,9 +244,7 @@ if (isset($_POST['add'])) {
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Water bottle - 2L</p>
-                            <button class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"
-                                type="button"><a class=" " href="package.html" target="_blank">Choose
-                                    Plan</a></button>
+                            <button type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"><a class=" " href="package.php?status=sp" target="_blank">Choose Plan</a></button>
                         </div>
                     </div>
                 </div>
@@ -291,7 +289,7 @@ if (isset($_POST['add'])) {
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Water bottle - 2L</p>
                             <button class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-4"
-                                type="button"><a class=" " href="package.html" target="_blank">Choose
+                                type="submit"><a class=" " href="package.php?status=tp" target="_blank">Choose
                                     Plan</a></button>
                         </div>
                     </div>
@@ -334,7 +332,7 @@ if (isset($_POST['add'])) {
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Water bottle - 2L</p>
                             <button class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"
-                                type="button"><a class=" " href="package.html" target="_blank">Choose
+                                type="submit"><a class=" " href="package.php?status=fop" target="_blank">Choose
                                     Plan</a></button>
                         </div>
                     </div>

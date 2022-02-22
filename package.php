@@ -1,3 +1,18 @@
+<?php
+    $status = $_GET['status'];
+    
+    // if($status == 'fp'){
+    //     $input = 300;
+    // }elseif($status == 'sp'){
+    //     $input == 500;
+    // }elseif($status == 'tp'){
+    //     $input == 800;
+    // }elseif($status == 'fop'){
+    //     $input == 1500;
+    // }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,17 +83,13 @@
         </header>
         <!-- //header -->
 
-        <section>
-
-            <h4 class="error">Exclusive Package</h4>
+        <section class="mt-5 mb-5 pt-5 pb-5">
             <div class="two-grids">
                 <div class="mid-class">
-                    <div class="txt-left-side">
+                    <div class="txt-left-side rounded">
                         <h2> Package </h2>
                         <p><strong>Thanks to choose our exclusive packages</strong></p>
                         <form action="#" method="post">
-
-
                             <div class="container">
                                 <label for="fname" style="color: white">Name:</label><br>
                                 <input type="text" id="fname" name="fname" value=""><br>
@@ -87,21 +98,28 @@
                                 <input type="email" id="lname" name="lname" value=""><br>
 
                                 <label for="fname" style="color: white">Amount:</label><br>
-                                <input type="text" id="famount" name="fname" value=""><br>
-
+                                <input type="text" id="famount" name="fname" class="fw-bold fs-5"
+                                value="<?php if($status == 'fp'){
+                                            echo 300;
+                                        }elseif($status == 'sp'){
+                                            echo 500;
+                                        }elseif($status == 'tp'){
+                                            echo 800;
+                                        }elseif($status == 'fop'){
+                                            echo 1500;
+                                        }
+                                        ?>" readonly><br>
                                 <label for="lname" style="color: white">Send-out Number:</label><br>
                                 <input type="text" id="lsend" name="lname" value="">
 
                             </div>
 
-
-
                             <div class="btnn">
                                 <button type="submit" style="color: white">Confirm</button>
                             </div>
                         </form>
-
                     </div>
+
                     <div class="img-right-side">
                         <h3>Welcome To Our Exculsive Packages</h3>
                         <p><strong>You can complete your payment method to send money in Bkash & Nagad </strong></p>
@@ -112,9 +130,8 @@
                 </div>
             </div>
         </section>
-        <footer class="copyrigh-wthree">
-
-        </footer>
     </body>
-
 </html>
+
+<?php
+include_once 'footer.php';

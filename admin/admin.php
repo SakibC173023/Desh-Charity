@@ -34,7 +34,7 @@ include_once '../login/Includes/dbh_connect.php';
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <div class="container-fluid">
                 <a class="navbar-brand h3 fw-bold ps-lg-5 d-flex align-items-center" href="../index.php">
-                    <a class="navbar-brand h3 fw-bold" href="index.php"><i
+                    <a class="navbar-brand h3 fw-bold" href="../index.php"><i
                             class="fas fa-hand-holding-heart  fs-1" style="color: red"></i> Desh Charity</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
