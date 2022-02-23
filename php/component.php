@@ -4,7 +4,7 @@ function demoProduct($productname,$productprice,$productimg,$productid){
     $elements = "
 
     <div class=\"col-lg-4 col-md-6\">
-             <form action=\"index.php\" method=\"post\">
+             <form action=\"#products\" method=\"post\">
                         <div class=\"coursecard-single\">
                             <div class=\"grids5-info position-relative\">
                                 <img src=\"$productimg\" alt=\"\" class=\"img-fluid\" />

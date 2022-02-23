@@ -342,7 +342,7 @@ if (isset($_POST['add'])) {
         <!-- package section end -->
 
         <!-- Products section -->
-<div class="grids-block-5 home-course-bg py-5" id="courses">
+<div class="grids-block-5 home-course-bg py-5" id="products">
     <div class="container py-md-5 py-4">
         <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
             <h2 class="text-uppercase fw-bold">Products</h2>
@@ -546,7 +546,13 @@ if (isset($_POST['add'])) {
 
       
         <!-- cart Offcanvas start -->
-        <?php if (count($_SESSION['Cart']) > 0) { OffcanvasCart(); } ?>
+        <?php 
+        if(isset($_SESSION['Cart'])){
+            if (count($_SESSION['Cart']) > 0) {
+                OffcanvasCart(); 
+             }
+        }
+        ?>
         <!-- cart Offcanvas end -->
 
         <!-- footer block start-->
