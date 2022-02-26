@@ -1,15 +1,18 @@
 <?php
+include_once 'php/create-db.php';
+$db = new Dbh();
     $status = $_GET['status'];
     
-    // if($status == 'fp'){
-    //     $input = 300;
-    // }elseif($status == 'sp'){
-    //     $input == 500;
-    // }elseif($status == 'tp'){
-    //     $input == 800;
-    // }elseif($status == 'fop'){
-    //     $input == 1500;
-    // }
+    if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $amount = $_POST['amount'];
+        $sendNo = $_POST['number'];
+
+        $sql = "INSERT INTO package(Name,Email,Amount,Send_number) VALUES('$name','$email','$amount','$sendNo')";
+        $stmt = $db->connect()->query($sql);
+        header('location:index.php?packStts=package-submitted');
+    }
 ?>
 
 
@@ -87,18 +90,18 @@
             <div class="two-grids">
                 <div class="mid-class">
                     <div class="txt-left-side rounded">
-                        <h2> Package </h2>
+                        <h2>Package</h2>
                         <p><strong>Thanks to choose our exclusive packages</strong></p>
-                        <form action="#" method="post">
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                             <div class="container">
-                                <label for="fname" style="color: white">Name:</label><br>
-                                <input type="text" id="fname" name="fname" value=""><br>
+                                <label for="name" style="color: white">Name:</label><br>
+                                <input type="text" id="name" name="name"><br>
 
-                                <label for="lname" style="color: white">Email:</label><br>
-                                <input type="email" id="lname" name="lname" value=""><br>
+                                <label for="email" style="color: white">Email:</label><br>
+                                <input type="email" id="email" name="email"><br>
 
-                                <label for="fname" style="color: white">Amount:</label><br>
-                                <input type="text" id="famount" name="fname" class="fw-bold fs-5"
+                                <label for="amount" style="color: white">Amount:</label><br>
+                                <input type="text" id="amount" name="amount" class="fw-bold fs-5"
                                 value="<?php if($status == 'fp'){
                                             echo 300;
                                         }elseif($status == 'sp'){
@@ -109,13 +112,12 @@
                                             echo 1500;
                                         }
                                         ?>" readonly><br>
-                                <label for="lname" style="color: white">Send-out Number:</label><br>
-                                <input type="text" id="lsend" name="lname" value="">
-
+                                <label for="number" style="color: white">Send-out Number:</label><br>
+                                <input type="text" id="number" name="number">
                             </div>
 
                             <div class="btnn">
-                                <button type="submit" style="color: white">Confirm</button>
+                                <button type="submit" name="submit" style="color: white">Confirm</button>
                             </div>
                         </form>
                     </div>

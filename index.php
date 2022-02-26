@@ -8,6 +8,28 @@ $database = new Dbh();
 $database->connect();
 $database->createTable('demoProduct');
 
+if (isset($_GET['donationErr']) == 'already-submitted'){
+    ?>
+    <script>
+        alert('Your donation already submitted');
+    </script>
+    <?php
+}
+elseif (isset($_GET['donationStts']) == 'donation-success'){
+    ?>
+    <script>
+        alert('Your request has been submitted successfully');
+    </script>
+    <?php
+}
+elseif (isset($_GET['packStts']) == 'package-submitted'){
+    ?>
+    <script>
+        alert('Your package form has been submitted successfully');
+    </script>
+    <?php
+}
+
 if (isset($_POST['add'])) {
         if (isset($_SESSION['Cart']))
         {

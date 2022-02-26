@@ -24,12 +24,12 @@ if(isset($_POST['submit'])){
     $row = $stmt->fetch();
 
     if($row['donorEmail'] == $email && $row['comments'] == $comments){
-        header('location:donate.php?error=already-submitted');
+        header('location:index.php?donationErr=already-submitted');
         }
     else{
         $sql = "INSERT INTO donation(donorName,donorEmail,donorAddress,donorPhone,donationType,comments,image) VALUES(?,?,?,?,?,?,?)";
         $stmt = connect()->prepare($sql);
         $stmt->execute([$name,$email,$address,$phone,$dType,$comments,$dstDb]);
-        header('location:donate.php?value=success');
+        header('location:index.php?donationStts=donation-success');
     }
 }

@@ -1,12 +1,5 @@
 <?php
-include_once '../login/Includes/dbh_connect.php';
-    $status = $_GET['error'];
-    if($status == 'already-approved'){
-        echo "<script>alert('Already Approved')</script>";
-    }elseif($status == 'already-rejected'){
-        echo "<script>alert('Already Rejected')</script>";
-    }
-
+    include_once '../login/Includes/dbh_connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,9 +49,9 @@ include_once '../login/Includes/dbh_connect.php';
         <h3 class="mt-5 pt-5">All Donation Requests</h3>
             <section>
                 <div class="row gap-3">
-                    
+
                     <!-- Donation Request Part -->
-                    <div class="col-8 m-auto">
+                    <div class="col-8 mx-auto">
                         <table class="table table-dark">
                             <tr class="text-center table-active">
                                 <th>Donor Name</th>
@@ -101,10 +94,10 @@ include_once '../login/Includes/dbh_connect.php';
 
                     <!-- Summary Part -->
                     <div class="col-3 mx-auto">
-                        <h2>Summary</h2>
-                        <table class="table table-dark table-striped">
+                        <h3>F/C Donation Gist</h3>
+                        <table class="table table-dark table-striped text-center">
                             <tr>
-                                <th>Requests</th>
+                                <th>New Request(s)</th>
                                 <th>Approved</th>
                                 <th>Rejected</th>      
                             </tr>
@@ -128,12 +121,34 @@ include_once '../login/Includes/dbh_connect.php';
                                 <td><?php echo $rejectedCount ?></td>
                             </tr>
                         </table>
+                        
+                        <h3>Package Donation Gist</h3>
+                        <table class="table table-dark table-striped text-center">
+                            <tr>
+                                <th>Requests</th>
+                                <th>Amount (total)</th>     
+                            </tr>
+                            <tr class="table-active">
+                            <?php
+                                $package = "SELECT * FROM package";
+                                $stmt = connect()->query($package);
+                                $reqCount = 0;
+                                $amount = 0;
+                                while($row = $stmt->fetch()){
+                                    $amount += $row['Amount'];
+                                    $reqCount++;
+                                }
+                            ?>
+                                <td><?php echo $reqCount ?></td>
+                                <td><?php echo $amount ?> BDT</td>
+                            </tr>
+                        </table>
                     </div>
 
                     <!-- Approved Request Part -->
-                    <div class="col-5 m-auto">
-                        <h2>Approved Logs</h2>
-                        <table class="table table-dark table-striped">
+                    <div class="col-5 mx-auto">
+                        <h2>Approved Log</h2>
+                        <table class="table table-dark table-striped text-center">
                             <tr>
                                 <th>Name</th>
                                 <th>Phone</th>
@@ -160,8 +175,8 @@ include_once '../login/Includes/dbh_connect.php';
 
                     <!-- Rejected Request Part -->
                     <div class="col-5 mx-auto">
-                        <h2>Rejected Logs</h2>
-                        <table class="table table-dark table-striped">
+                        <h2>Rejected Log</h2>
+                        <table class="table table-dark table-striped text-center">
                             <tr>
                                 <th>Name</th>
                                 <th>Phone</th>

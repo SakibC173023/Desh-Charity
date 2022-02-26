@@ -1,20 +1,3 @@
-<?php
-    if (isset($_GET['error']) == 'already-submitted'){
-        ?>
-        <script>
-            alert('Your donation already submitted');
-        </script>
-        <?php
-    }
-    elseif (isset($_GET['value']) == 'success'){
-        ?>
-        <script>
-            alert('Your request has been submitted successfully');
-        </script>
-        <?php
-    }
-?>
-
 <!DOCTYPE html>
 <html>
 
