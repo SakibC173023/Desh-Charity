@@ -50,7 +50,7 @@
 <!-----start-main---->
 <div class="login-form">
     <h1>Sign Up</h1>
-    <form action="login/Includes/signup_validation.php" method="post">
+    <form action="login/signup_validation.php" method="post">
         <li>
             <label>
                 <input type="text" name="email" class="text" value="Email">

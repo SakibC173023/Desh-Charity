@@ -69,7 +69,7 @@
                                 <td><?php echo $row['Address'] ?></td>
                                 <td class="d-flex justify-content-center align-items-center p-2">
                                     <?php echo $row['Status'] ?>
-                                    <a class="btn btn-success ms-1" role="button" type="submit" href="approve-reject-validation.php?id=<?php echo $row['id'] ?>&status=approved">Update Status</a>
+                                    <a class="btn btn-success ms-1" role="button" type="submit" href="update-status.php?id=<?php echo $row['id'] ?>&status=approved">Update Status</a>
                                 </td>
                             </tr>
                             <?php

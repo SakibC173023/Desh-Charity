@@ -45,13 +45,12 @@
             </nav>
         </header>
 
-    <main class="container-fluid">
-        <h3 class="mt-5 pt-5">All Donation Requests</h3>
+    <main class="container-fluid mt-5 pt-5">
             <section>
                 <div class="row gap-3">
-
                     <!-- Donation Request Part -->
                     <div class="col-8 mx-auto">
+                    <h2>All Donation Requests</h2>
                         <table class="table table-dark">
                             <tr class="text-center table-active">
                                 <th>Donor Name</th>
@@ -101,7 +100,7 @@
                                 <th>Approved</th>
                                 <th>Rejected</th>      
                             </tr>
-                            <tr class="table-active">
+                            <tr>
                             <?php
                                 $approvedSql = "SELECT * FROM approved_donation";
                                 $rejectedSql = "SELECT * FROM rejected_donation";
@@ -116,19 +115,19 @@
                                     $rejectedCount++;
                                 }
                             ?>
-                                <td><?php echo $reqCount ?></td>
-                                <td><?php echo $approvedCount ?></td>
-                                <td><?php echo $rejectedCount ?></td>
+                                <td class="table-info fw-bold"><?php echo $reqCount ?></td>
+                                <td class="table-primary fw-bold"><?php echo $approvedCount ?></td>
+                                <td class="table-light fw-bold"><?php echo $rejectedCount ?></td>
                             </tr>
                         </table>
                         
                         <h3>Package Donation Gist</h3>
                         <table class="table table-dark table-striped text-center">
                             <tr>
-                                <th>Requests</th>
+                                <th>bkash/Nagad Transaction(s)</th>
                                 <th>Amount (total)</th>     
                             </tr>
-                            <tr class="table-active">
+                            <tr>
                             <?php
                                 $package = "SELECT * FROM package";
                                 $stmt = connect()->query($package);
@@ -139,14 +138,14 @@
                                     $reqCount++;
                                 }
                             ?>
-                                <td><?php echo $reqCount ?></td>
-                                <td><?php echo $amount ?> BDT</td>
+                                <td class="table-primary fw-bold"><?php echo $reqCount ?></td>
+                                <td class="table-warning fw-bold"><?php echo $amount ?> BDT</td>
                             </tr>
                         </table>
                     </div>
 
                     <!-- Approved Request Part -->
-                    <div class="col-5 mx-auto">
+                    <div class="col-6 mx-auto">
                         <h2>Approved Log</h2>
                         <table class="table table-dark table-striped text-center">
                             <tr>

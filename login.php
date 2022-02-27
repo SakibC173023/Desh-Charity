@@ -46,7 +46,7 @@ session_start();
                             <?php
                                 if(isset($_SESSION['username'])){
                                     echo "<li class=\"nav-item\">
-                                    <a class=\"nav-link\" href=\"logout.php\">Logout</a>
+                                    <a class=\"nav-link\" href=\"login/logout.php\">Logout</a>
                                 </li>";
                                 }else{
                                     echo "<li class=\"nav-item\">
@@ -65,7 +65,7 @@ session_start();
         <!-----start-main---->
         <div class="login-form">
             <h1>Login</h1>
-            <form action="login/Includes/login_validation.php" method="post">
+            <form action="login/login_validation.php" method="post">
                 <li>
                     <label>Email</label>
                     <input type="text" name="email" required><a href="#" class=" icon user"></a>
