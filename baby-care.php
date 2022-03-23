@@ -1,17 +1,16 @@
 <?php
 session_start();
 
-require_once ('./php/create-db.php');
-require_once ('./php/component.php');
+require_once ('assets/php/create-db.php');
+require_once ('assets/php/component.php');
 
 $database = new Dbh();
 $database->connect();
 $database->createTable('babyCare');
 
-if(isset($_POST['add']))
-{
-  if (isset($_SESSION['Cart']))
-        {
+if(isset($_POST['add'])){
+    if(isset($_SESSION['username'])){
+        if (isset($_SESSION['Cart'])){
             $item_array_id = array_column($_SESSION['Cart'],'product_id');
             if (in_array($_POST['product_id'],$item_array_id))
             {
@@ -43,6 +42,7 @@ if(isset($_POST['add']))
             $_SESSION['Cart'][0] = $item_array;
         }
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ if(isset($_POST['add']))
 <body>
 
 <?php
-    require_once ('php/cart-header.php');
+    require_once ('assets/php/cart-header.php');
 ?>
 <div class="container">
     <div class="row text-center py-5">

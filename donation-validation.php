@@ -1,6 +1,6 @@
 <?php
 
-include_once 'login/Includes/dbh_connect.php';
+include_once 'login/dbh_connect.php';
 
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 
     move_uploaded_file($_FILES['image']['tmp_name'],$dstFolder);
 
-    $search = "SELECT * FROM donation WHERE donorEmail = '$email'";
+    $search = "SELECT * FROM donation_req WHERE donorEmail = '$email'";
     $stmt = connect()->query($search);
     $row = $stmt->fetch();
 
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
         header('location:index.php?donationErr=already-submitted');
         }
     else{
-        $sql = "INSERT INTO donation(donorName,donorEmail,donorAddress,donorPhone,donationType,comments,image) VALUES(?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO donation_req(donorName,donorEmail,donorAddress,donorPhone,donationType,comments,image) VALUES(?,?,?,?,?,?,?)";
         $stmt = connect()->prepare($sql);
         $stmt->execute([$name,$email,$address,$phone,$dType,$comments,$dstDb]);
         header('location:index.php?donationStts=donation-success');

@@ -2,8 +2,8 @@
 
 session_start();
 
-include_once './php/create-db.php';
-include_once './php/component.php';
+include_once 'assets/php/create-db.php';
+include_once 'assets/php/component.php';
 
 $db = new Dbh();
 $db->connect();
@@ -46,7 +46,7 @@ if (isset($_POST['remove']))
 <body class="bg-light">
 
 <?php
-    require_once ('php/cart-header.php');
+    require_once ('assets/php/cart-header.php');
 ?>
 
 <div class="container-fluid">

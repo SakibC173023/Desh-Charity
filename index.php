@@ -1,8 +1,8 @@
 <?php
  session_start();
 
-require_once ('./php/create-db.php');
-require_once ('./php/component.php');
+require_once ('assets/php/create-db.php');
+require_once ('assets/php/component.php');
 
 $database = new Dbh();
 $database->connect();
@@ -30,9 +30,10 @@ elseif (isset($_GET['packStts']) == 'package-submitted'){
     <?php
 }
 
+
 if (isset($_POST['add'])) {
-        if (isset($_SESSION['Cart']))
-        {
+    if(isset($_SESSION['username'])){
+        if (isset($_SESSION['Cart'])){
             $item_array_id = array_column($_SESSION['Cart'], 'product_id');
             if (in_array($_POST['product_id'], $item_array_id))
             {
@@ -62,6 +63,7 @@ if (isset($_POST['add'])) {
             );
             $_SESSION['Cart'][0] = $item_array;
         }
+    }
 }
 ?>
 
@@ -75,6 +77,7 @@ if (isset($_POST['add'])) {
         <section id="home" class="banner py-5">
             <div class="banner-content">
                 <div class="container py-5 mt-5">
+                <h2 class="m-0"><?php if(!isset($_SESSION['username'])) { echo 'Please login before purchase';} ?></h2>
                     <div class="row d-flex align-items-center pt-sm-5 pt-4">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
                             <h1 class="mb-lg-4 mb-3 fw-bold">Men Deserve The<span
@@ -409,7 +412,7 @@ if (isset($_POST['add'])) {
                             <li><i class="fas fa-check-circle primary-clr pe-1"></i>Gain Volunteering Experience</li>
                             <li><i class="fas fa-check-circle primary-clr pe-1"></i>Help the People</li>
                         </ul>
-                        <a href="volunteer.html" class="btn btn-style mt-lg-4" >Join Now <i
+                        <a href="volunteer.php" class="btn btn-style mt-lg-4" >Join Now <i
                                 class="fas fa-arrow-right ps-1"></i></a>
                     </div>
                 </div>

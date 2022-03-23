@@ -2,7 +2,7 @@
 
     session_start();
 
-    require_once ('php/create-db.php');
+    require_once ('assets/php/create-db.php');
 
     $db = new Dbh();
     $db->connect();

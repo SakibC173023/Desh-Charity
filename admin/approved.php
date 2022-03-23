@@ -1,5 +1,5 @@
 <?php
-    include_once '../login/Includes/dbh_connect.php';
+    include_once '../login/dbh_connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <div class="container-fluid">
                 <a class="navbar-brand h3 fw-bold ps-lg-5 d-flex align-items-center" href="../index.php">
-                    <a class="navbar-brand h3 fw-bold" href="index.php"><i
+                    <a class="navbar-brand h3 fw-bold" href="../index.php"><i
                             class="fas fa-hand-holding-heart  fs-1" style="color: red"></i> Desh Charity</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -55,7 +55,7 @@
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Address</th>
-                                <th>Status</th>
+                                <th class="mx-auto">Status</th>
                             </tr>
                                 <?php
                                     $sql = "SELECT * FROM approved_donation";
@@ -69,7 +69,7 @@
                                 <td><?php echo $row['Address'] ?></td>
                                 <td class="d-flex justify-content-center align-items-center p-2">
                                     <?php echo $row['Status'] ?>
-                                    <a class="btn btn-success ms-1" role="button" type="submit" href="update-status.php?id=<?php echo $row['id'] ?>&status=approved">Update Status</a>
+                                    <a class="btn btn-success ms-1" role="button" type="submit" href="update-status.php?id=<?php echo $row['id'] ?>&status=approved">✔ Mark Collected</a>
                                 </td>
                             </tr>
                             <?php

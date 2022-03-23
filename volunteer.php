@@ -4,74 +4,58 @@
 ?>
 <!-- //header -->
 
-<!-- contact block -->
-<section class="contact py-5" id="contact">
-    <h1 class="header-agileits agile-info">Volunteer Registration</h1>
-
-    <div class="content">
-        <div class="form-layouts">
-            <form action="#" method="post">
-                <div class="form-control">
-                    <label class="header">Name <span>*</span> </label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" title="Please enter your Full Name" required="">
-                    <div class="clear"></div>
-                </div>
-
-                <div class="form-control">
-                    <label class="header">Email <span>*</span> </label>
-                    <input type="email" id="email" name="email" placeholder="Mail@example.com" title="Please enter a Valid Email Address" required="">
-                    <div class="clear"></div>
-                </div>
-
-                <div class="form-control">
-                    <label class="header">Address <span>*</span> </label>
-                    <input type="text" id="bill" name="bill" placeholder="Address" title="Please enter Your Address" required="">
-                    <div class="clear"></div>
-                </div>
-                <div class="form-control">
-                    <label class="header">City Area <span>*</span> </label>
-                    <input type="email" id="usrtel" name="area" placeholder="Area you belong" title="City Area" required="">
-                    <div class="clear"></div>
-                </div>
-                <div class="form-control">
-                    <label class="header">Blood Group <span>*</span> </label>
-                    <input type="text" id="usrtel" name="area" placeholder="Your Blood Group" title="Blood group" required="">
-                    <div class="clear"></div>
-                </div>
-
-
-                <div class="form-control">
-                    <label class="header">NID Number <span>*</span> </label>
-                    <input type="tel" id="usrtel" name="usrtel" placeholder="Enter Your NID Number" title="Please enter Your NID Number" required="">
-                    <div class="clear"></div>
-                </div>
-                <div class="form-control">
-                    <label class="header">Phone Number <span>*</span> </label>
-                    <input type="tel" id="usrtel" name="usrtel" placeholder="Enter Your Phone Number" title="Please enter Your Phone Number" required="">
-                    <div class="clear"></div>
-
-                    <div class="form-control">
-                        <label class="enquiry">Any comments <span>*</span> </label>
-                        <textarea id="message" name="message" placeholder="Your Queries" title="Please enter Your Queries"></textarea>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="form-control">
-                        <label class="enquiry">Profile Image <span>*</span></label> <br>
-                        <label for="myfile">Select a file:</label>
-                        <input type="file" id="myfile" name="myfile"><br>
-                    </div>
-                    <div class="form-control">
-                        <input type="submit" class="register" value="Submit">
-                        <div class="clear"></div>
-                    </div>
-            </form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Volunteer Sign up form</title>
+    <link rel="stylesheet" href="assets/css/volunteer.css">
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/">
+        <div class="volunteer-banner">
+          <h1>Volunteer Signup</h1>
         </div>
+        <br/>
+        <p>The HELP Group is seeking volunteers to serve our community. Fill in the information below to indicate how you would like to become involved.</p>
+        <br/>
+        <div class="colums">
+          <div class="item">
+            <label for="name">Name<span>*</span></label>
+            <input id="name" type="text" name="name" required/>
+          </div>
+          <div class="item">
+            <label for="eaddress">Email Address<span>*</span></label>
+            <input id="eaddress" type="text"   name="eaddress" required/>
+          </div>
+          <div class="item">
+            <label for="phone">Phone<span>*</span></label>
+            <input id="phone" type="tel"   name="phone" required/>
+          </div>
+          <div class="item">
+            <label for="street">Street<span>*</span></label>
+            <input id="street" type="text"   name="street" required/>
+          </div>
+          <div class="item">
+            <label for="city">City<span>*</span></label>
+            <input id="city" type="text"   name="city" required/>
+          </div>
+          <div class="item">
+            <label for="state">State<span>*</span></label>
+            <input id="state" type="text"   name="state" required/>
+          </div>
+          <div class="item">
+            <label for="zip">Zip<span>*</span></label>
+            <input id="zip" type="text"   name="zip" required/>
+          </div>
+        </div>
+        <div class="btn-block">
+          <button type="submit" href="/">Submit</button>
+        </div>
+      </form>
     </div>
-
-</section>
-<!-- map -->
-
-<!-- //contact block -->
+  </body>
+</html>
 
 <!-- footer block -->
 <?php

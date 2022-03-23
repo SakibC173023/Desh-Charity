@@ -1,5 +1,5 @@
 <?php
-include_once 'php/create-db.php';
+include_once 'assets/php/create-db.php';
 $db = new Dbh();
     $status = $_GET['status'];
     
@@ -95,10 +95,10 @@ $db = new Dbh();
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                             <div class="container">
                                 <label for="name" style="color: white">Name:</label><br>
-                                <input type="text" id="name" name="name"><br>
+                                <input type="text" id="name" name="name" required><br>
 
                                 <label for="email" style="color: white">Email:</label><br>
-                                <input type="email" id="email" name="email"><br>
+                                <input type="email" id="email" name="email" required><br>
 
                                 <label for="amount" style="color: white">Amount:</label><br>
                                 <input type="text" id="amount" name="amount" class="fw-bold fs-5"
@@ -111,9 +111,9 @@ $db = new Dbh();
                                         }elseif($status == 'fop'){
                                             echo 1500;
                                         }
-                                        ?>" readonly><br>
+                                        ?>" readonly required><br>
                                 <label for="number" style="color: white">Send-out Number:</label><br>
-                                <input type="text" id="number" name="number">
+                                <input type="text" id="number" name="number" required>
                             </div>
 
                             <div class="btnn">

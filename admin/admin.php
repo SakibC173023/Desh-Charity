@@ -1,5 +1,5 @@
 <?php
-    include_once '../login/Includes/dbh_connect.php';
+    include_once '../login/dbh_connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +63,7 @@
                                 <th>Status</th>
                             </tr>
                             <?php
-                                $sql = "SELECT * FROM donation";
+                                $sql = "SELECT * FROM donation_req";
                                 $stmt = connect()->query($sql);
                                 $reqCount = 0;
                                 while($row = $stmt->fetch())
@@ -85,10 +85,15 @@
                                 </td>
                             </tr>
                             <?php
-                          
+                        
                             }
                             ?>
                         </table>
+                        <?php
+                            if(!$reqCount){
+                                echo "<h3 class='text-center'>No New Request(s)</h3>";
+                            }
+                        ?>
                     </div>
 
                     <!-- Summary Part -->
