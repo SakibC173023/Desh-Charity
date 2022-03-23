@@ -8,6 +8,7 @@ if($status == 'approved'){
     $sql = "SELECT * FROM donation_req WHERE donateID = '$id'";
     $stmt = connect()->query($sql);
     $row = $stmt->fetch();
+    $donor = $row['donorName'];
 
     if($row > 0){
         $sql = "INSERT INTO approved_donation(Name,Phone,Address,Status) VALUES(?,?,?,?)";
@@ -32,11 +33,11 @@ if($status == 'approved'){
 
     $mail->isHTML(true);
     $mail->Subject="Donation Accepted";
-    $mail->Body="<p>Dear donor, </p> <h4>We are so much pleased to announce that your donation request has been accepted with ❤. A Volunteer of Desh Charity will collect those donation soon. Good Luck.<br></h4>
+    $mail->Body="<p>Dear $donor, </p> <h4>We are so much pleased to announce that your donation request has been accepted with ❤. A Volunteer of Desh Charity will collect those donation soon. Good Luck.<br></h4>
         <br><br>
         With regrads,<br>
-        Forhad Uddin<br><br>S
-        CEO, Desh Charity<br>
+        Forhad Uddin<br><br>
+        Admin, Desh Charity<br>
         Chittagong - 4200, Ave-5<br>
         Get in touch @: 01810000000<br>
         For more, visit: <a href=\"http://localhost/Desh-Charity/\">Desh Charity</a>";
@@ -72,11 +73,11 @@ elseif($status == 'rejected'){
 
     $mail->isHTML(true);
     $mail->Subject="Donation Rejected";
-    $mail->Body="<p>Dear donor, </p> <h4>We are so much sorry 😌 to receive your donation due to some policy issues that doesn't meet our requirements.<br></h4>
+    $mail->Body="<p>Dear $donor, </p> <h4>We are so much sorry 😌 to receive your donation due to some policy issues that doesn't meet our requirements.<br></h4>
         <br><br>
         With regrads,<br>
         Forhad Uddin<br><br>
-        CEO, Desh Charity<br>
+        Admin, Desh Charity<br>
         Chittagong - 4200, Ave-5<br>
         Get in touch @: 01810000000<br>
         For more, visit: <a href=\"http://localhost/Desh-Charity/\">Desh Charity</a>";

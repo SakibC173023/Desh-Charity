@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="testbox">
-      <form action="/">
+      <form action="admin/volunteer-validation.php" method="POST">
         <div class="volunteer-banner">
           <h1>Volunteer Signup</h1>
         </div>
@@ -25,8 +25,12 @@
             <input id="name" type="text" name="name" required/>
           </div>
           <div class="item">
-            <label for="eaddress">Email Address<span>*</span></label>
-            <input id="eaddress" type="text"   name="eaddress" required/>
+            <label for="email">Email Address<span>*</span></label>
+            <input id="email" type="text"   name="email" required/>
+          </div>
+          <div class="item">
+            <label for="nid">NID Number<span>*</span></label>
+            <input id="nid" type="text"   name="nid" required/>
           </div>
           <div class="item">
             <label for="phone">Phone<span>*</span></label>
@@ -38,19 +42,11 @@
           </div>
           <div class="item">
             <label for="city">City<span>*</span></label>
-            <input id="city" type="text"   name="city" required/>
-          </div>
-          <div class="item">
-            <label for="state">State<span>*</span></label>
-            <input id="state" type="text"   name="state" required/>
-          </div>
-          <div class="item">
-            <label for="zip">Zip<span>*</span></label>
-            <input id="zip" type="text"   name="zip" required/>
+            <input id="city" type="text"   name="city" value="Chattogram" readonly/>
           </div>
         </div>
         <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
+          <button type="submit" name="submit">Submit</button>
         </div>
       </form>
     </div>

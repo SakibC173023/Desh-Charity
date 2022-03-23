@@ -86,7 +86,7 @@ if (isset($_POST['add'])) {
                             </h1>
                             <p class="banner-sub">Make Helpless People Smile On Their Faces At Least For a While</p>
                             <div class="d-flex align-items-center buttons-banner">
-                                <a href="donate.php" class="btn btn-style mt-lg-2">Donate Now </a>
+                                <a href="donate.html" class="btn btn-style mt-lg-2">Donate Now </a>
                             </div>
                         </div>
                         <div
@@ -149,7 +149,7 @@ if (isset($_POST['add'])) {
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
                 <div class="border rounded shadow-lg p-4 d-flex flex-column align-items-center">
                     <div class="my-2"><i class="fas fa-hamburger fs-1" style="color: orange"></i></div>
-                    <h4 class="fw-bold my-2"><a class="text-dark " href="donate.php">Donate Food</a></h4>
+                    <h4 class="fw-bold my-2"><a class="text-dark " href="donate.html">Donate Food</a></h4>
                     <p class="text-center my-2 lh-lg">Ras effic itur metusga via suscipit consect eturerse adi
                         unde
                         omnis.
@@ -159,7 +159,7 @@ if (isset($_POST['add'])) {
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-md-0 mt-4">
                 <div class="border rounded shadow-lg p-4 d-flex flex-column align-items-center">
                     <div class="my-2" style="color: #00a4f5"><i class="fas fa-tshirt fs-1"></i></div>
-                    <h4 class="fw-bold my-2"><a class="text-dark " href="donate.php" style="">Donate Clothes</a></h4>
+                    <h4 class="fw-bold my-2"><a class="text-dark " href="donate.html" style="">Donate Clothes</a></h4>
                     <p class="text-center my-2 lh-lg">Ras effic itur metusga via suscipit consect eturerse adi
                         unde omnis.</p>
                 </div>
