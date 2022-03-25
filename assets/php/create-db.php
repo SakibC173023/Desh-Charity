@@ -69,4 +69,14 @@ class Dbh
             return $result;
         }
     }
+
+    public function getToys($toys){
+        $sql = "SELECT * FROM $toys";
+        $result = mysqli_query($this->conn,$sql);
+
+        if(mysqli_num_rows($result) > 0)
+        {
+            return $result;
+        }
+    }
 }
