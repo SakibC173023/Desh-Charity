@@ -81,9 +81,9 @@ if (isset($_POST['remove']))
 
             </div>
         </div>
-        <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
-
-            <div class="pt-4">
+        <div class="col-md-4 offset-md-1 mt-5">
+            <div class="row d-flex flex-column gy-3">
+            <div class="pt-4 pl-2 border rounded bg-white">
                 <h6>PRICE DETAILS</h6>
                 <hr>
                 <div class="row price-details">
@@ -112,6 +112,12 @@ if (isset($_POST['remove']))
                 </div>
             </div>
 
+            <div class="mt-2">
+                <button type="button" style="background: #32CD32;" class="btn btn-lg btn-block mt-2 "><a class ="text-white text-decoration-none"  href="./check-out.php">
+                       Proceed Checkout <i class="far fa-credit-card text-primary ps-2"></i> </a></button>
+                </div>
+            </div>
+         
         </div>
     </div>
 </div>

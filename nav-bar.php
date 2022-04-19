@@ -18,7 +18,7 @@
     <body>
         <!-- header -->
         <header class="">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top z-index-0">
                 <div class="container-fluid">
                 <a class="navbar-brand h3 fw-bold ps-lg-5 d-flex align-items-center" href="index.php">
                     <a class="navbar-brand h3 fw-bold" href="index.php"><i

@@ -120,14 +120,11 @@ function cartElement($productimg, $productname, $productprice, $productid){
                                 <h5 class=\"pt-2\">$productname</h5>
                                 <small class=\"text-secondary\">Seller: Desh Charity</small>
                                 <h5 class=\"pt-2\">$$productprice</h5>
-                                <button type=\"submit\" class=\"btn btn-warning\">Save for Later</button>
-                                <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Remove</button>
+                                
                             </div>
-                            <div class=\"col-md-3 py-5\">
+                            <div class=\"col-md-3 d-flex align-items-center\">
                                 <div>
-                                    <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
-                                    <input type=\"text\" value=\"1\" class=\"form-control w-25 d-inline\">
-                                    <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
+                                    <button type=\"submit\" class=\"btn btn-danger\" name=\"remove\">Remove Item</button>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +154,7 @@ function OffcanvasCart(){
     }   
 
     $element = "
-     <div class=\"bg-warning position-fixed top-50 end-0 rounded\" style=\"width: 90px; height: 70px;\"> 
+     <div class=\"bg-warning position-fixed top-50 end-0 rounded\" style=\"width: 90px; height: 70px; z-index: 2\"> 
         <button class=\"btn btn-transparent \" style=\"box-shadow: none;\" type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasRight\" aria-controls=\"offcanvasRight\">
         <i class=\"fas fa-shopping-cart text-primary fs-5 mt-2\"></i>
         <br>
@@ -180,13 +177,11 @@ function OffcanvasCart(){
                         <h5> Product(s) Quantity : $items</h5>
                         <h5> Product(s) Price : $total</h5>
                     </div>
-                    <button type=\"button\" class=\"btn btn-primary btn-lg btn-block mt-5\"><a class =\"text-white\" data-bs-toggle=\"offcanvas\" href=\"./cart.php\" aria-controls=\"offcanvasExample\">
-                            Go to Cart <i class=\"fas fa-shopping-cart ps-2\"></i> </a></button>
+                    <button type=\"button\" class=\"btn btn-primary btn-lg btn-block mt-4\"><a class =\"text-white\" data-bs-toggle=\"offcanvas\" href=\"./cart.php\" aria-controls=\"offcanvasExample\">
+                            Review Cart <i class=\"fas fa-shopping-cart ps-2\"></i> </a></button>
         
                     <button type=\"button\" style=\"background: #32CD32;\" class=\"btn btn-lg btn-block mt-2\"><a class =\"text-white\" data-bs-toggle=\"offcanvas\" href=\"./check-out.php\" aria-controls=\"offcanvasExample\">
                         Check Out <i class=\"far fa-credit-card text-primary ps-2\"></i> </a></button>
-                    
-                    
                 </div>
              </div>
         </div>
