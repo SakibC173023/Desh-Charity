@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="../assets/css/style-starter.css">
         <style>
             main{
-                margin-bottom: 350px;
+                margin-bottom: 150px;
             }
         </style>
     </head>
@@ -49,9 +49,9 @@
             <section>
                 <div class="row gap-3">
                     <!-- Donation Request Part -->
-                    <div class="col-8 mx-auto">
+                    <div class="col-8 mx-auto shadow-lg rounded p-3">
                     <h2>All Donation Requests</h2>
-                        <table class="table table-dark">
+                        <table class="table table-primary">
                             <tr class="text-center table-active">
                                 <th>Donor Name</th>
                                 <th>Email</th>
@@ -91,15 +91,15 @@
                         </table>
                         <?php
                             if(!$reqCount){
-                                echo "<h3 class='text-center'>No New Request(s)</h3>";
+                                echo "<h3 class='text-center'>No New Request!</h3>";
                             }
                         ?>
                     </div>
 
                     <!-- Summary Part -->
-                    <div class="col-3 mx-auto">
+                    <div class="col-3 mx-auto shadow-lg rounded p-3">
                         <h3>F/C Donation Gist</h3>
-                        <table class="table table-dark table-striped text-center">
+                        <table class="table table-striped text-center">
                             <tr>
                                 <th>New Request(s)</th>
                                 <th>Approved</th>
@@ -127,7 +127,7 @@
                         </table>
                         
                         <h3>Package Donation Gist</h3>
-                        <table class="table table-dark table-striped text-center">
+                        <table class="table table-striped text-center">
                             <tr>
                                 <th>bkash/Nagad Transaction(s)</th>
                                 <th>Amount (total)</th>     
@@ -150,16 +150,16 @@
                     </div>
 
                     <!-- Approved Request Part -->
-                    <div class="col-6 mx-auto">
+                    <div class="col-6 mx-auto shadow-lg rounded mt-5 p-3">
                         <h2>Approved Log</h2>
-                        <table class="table table-dark table-striped text-center">
+                        <table class="table table-striped text-center">
                             <tr>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Address</th>   
                                 <th>Status</th>   
                             </tr>
-                            <tr class="table-active">
+                            <tr>
                             <?php
                                 $sql = "SELECT * FROM approved_donation";
                                 $stmt2 = connect()->query($sql);
@@ -178,15 +178,15 @@
                     </div>
 
                     <!-- Rejected Request Part -->
-                    <div class="col-5 mx-auto">
+                    <div class="col-5 mx-auto shadow-lg rounded mt-5 p-3">
                         <h2>Rejected Log</h2>
-                        <table class="table table-dark table-striped text-center">
+                        <table class="table table-striped text-center">
                             <tr>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Address</th>     
                             </tr>
-                            <tr class="table-active">
+                            <tr>
                             <?php
                                 $sql = "SELECT * FROM rejected_donation";
                                 $stmt2 = connect()->query($sql);

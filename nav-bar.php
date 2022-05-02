@@ -33,12 +33,6 @@
                             <li class="nav-item">
                                 <a class="nav-link active text-warning" aria-current="page" href="index.php">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.php">About us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="volunteer.php">Be a Volunteer</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Products
@@ -49,6 +43,12 @@
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="#">Not Added Yet</a></li>
                                 </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="volunteer.php">Be a Volunteer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.php">About us</a>
                             </li>
                             <?php
                                 if(isset($_SESSION['username'])){
