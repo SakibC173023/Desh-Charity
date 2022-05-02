@@ -56,29 +56,32 @@ if (isset($_POST['remove']))
                 <h6>My Cart</h6>
                 <hr>
 
-                <?php
-                $total = 0;
-                if (isset($_SESSION['Cart'])){
-                    $product_id = array_column($_SESSION['Cart'],'product_id');
+                <div class="row g-2">
+                    <?php
+                    $total = 0;
+                    if (isset($_SESSION['Cart'])){
+                        $product_id = array_column($_SESSION['Cart'],'product_id');
 
-                    $result1 = $db->getDemoProduct('demoProduct');
-                    $result2 = $db->getBabyCare('babycare');
+                        $result1 = $db->getDemoProduct('demoProduct');
+                        $result2 = $db->getBabyCare('babycare');
+                        $result3 = $db->getToys('toys');
 
-                    while($row = mysqli_fetch_assoc($result1) OR $row = mysqli_fetch_assoc($result2)){
-                        foreach ($product_id as $id){
-                            if ($row['id'] == $id){
-                                cartElement($row['product_image'],$row['product_name'],$row['product_price'],$row['id']);
-                                $total = $total + (int)$row['product_price'];
+                        while($row = mysqli_fetch_assoc($result1) OR $row = mysqli_fetch_assoc($result2) OR $row = mysqli_fetch_assoc($result3)){
+                            foreach ($product_id as $id){
+                                if ($row['id'] == $id){
+                                    cartElement($row['product_image'],$row['product_name'],$row['product_price'],$row['id']);
+                                    $total = $total + (int)$row['product_price'];
+                                }
                             }
                         }
-                    }
 
-                    }else{
-                        echo "<h5>Cart is Empty</h5>";
-                    }
+                        }else{
+                            echo "<h5>Cart is Empty</h5>";
+                        }
 
-                ?>
+                    ?>
 
+                </div>
             </div>
         </div>
         <div class="col-md-4 offset-md-1 mt-5">

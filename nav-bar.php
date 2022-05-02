@@ -40,8 +40,6 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="baby-care.php">Baby Care</a></li>
                                     <li><a class="dropdown-item" href="toys.php">Toys</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Not Added Yet</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

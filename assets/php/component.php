@@ -4,7 +4,7 @@ function demoProduct($productname,$productprice,$productimg,$productid){
     $elements = "
 
     <div class=\"col-lg-4 col-md-6\">
-             <form action=\"#\" method=\"post\">
+             <form action=\"\" method=\"post\">
                         <div class=\"coursecard-single\">
                             <div class=\"grids5-info position-relative\">
                                 <img src=\"$productimg\" alt=\"\" class=\"img-fluid\" />
@@ -47,7 +47,7 @@ function babyCare($productid,$productname,$productprice,$productimg){
     $elements = "
     
     <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
-                    <form action=\"baby-care.php\" method=\"post\">
+                    <form method=\"post\">
                         <div class=\"card shadow\">
                             <div>
                                 <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid card-img-top\">
@@ -78,8 +78,8 @@ function babyCare($productid,$productname,$productprice,$productimg){
 function toys($productid,$productname,$productprice,$productimg){
     $elements = "
     
-    <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
-                    <form action=\"baby-care.php\" method=\"post\">
+    <div class=\"col-md-3 col-sm-6 my-3\">
+                    <form action=\"\" method=\"post\">
                         <div class=\"card shadow\">
                             <div>
                                 <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid card-img-top\">
@@ -110,26 +110,28 @@ function toys($productid,$productname,$productprice,$productimg){
 function cartElement($productimg, $productname, $productprice, $productid){
     $element = "
 
+    <div class=\"col-6 py-2\">
     <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
-                    <div class=\"border rounded\">
-                        <div class=\"row bg-white\">
-                            <div class=\"col-md-3 pl-0\">
-                                <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid\">
-                            </div>
-                            <div class=\"col-md-6\">
-                                <h5 class=\"pt-2\">$productname</h5>
-                                <small class=\"text-secondary\">Seller: Desh Charity</small>
-                                <h5 class=\"pt-2\">$$productprice</h5>
-                                
-                            </div>
-                            <div class=\"col-md-3 d-flex align-items-center\">
-                                <div>
-                                    <button type=\"submit\" class=\"btn btn-danger\" name=\"remove\">Remove Item</button>
-                                </div>
-                            </div>
-                        </div>
+        <div class=\"border bg-white rounded\">
+            <div class=\"row p-2\">
+                <div class=\"col-md-6\">
+                    <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid\" >
+                </div>
+                <div class=\"col-md-6\">
+                    <h5 class=\"pt-2\">$productname</h5>
+                    <small class=\"text-secondary\">Seller: Desh Charity</small>
+                    <h5 class=\"pt-2\">$$productprice</h5>
+                    
+                </div>
+                <div class=\"col-md-6 d-block mx-auto mt-4 mb-2\">
+                    <div>
+                        <button type=\"submit\" class=\"btn btn-danger\" name=\"remove\">Remove Item</button>
                     </div>
-                </form>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
 
     ";
     echo  $element;
