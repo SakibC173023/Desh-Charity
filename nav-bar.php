@@ -59,6 +59,24 @@
                                 </li>";
                                 }
                             ?>
+                            <li class="position-relative">
+                                <a href="cart.php" class="nav-link">
+                                    <h5 class="cart">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span class="position-absolute start-75 top-25 translate-middle badge rounded-pill bg-danger">
+                                            <?php
+                                                if (isset($_SESSION['Cart'])){
+                                                    $count = count($_SESSION['Cart']);
+                                                    echo "<span id=\"cart_count\" class=\"text-white\">$count</span>";
+                                                }else{
+                                                    echo "<span id=\"cart_count\" class=\"text-white\">0</span>";
+                                                }
+
+                                            ?>
+                                        </span>
+                                    </h5>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

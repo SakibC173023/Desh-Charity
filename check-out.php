@@ -59,19 +59,18 @@
     <div class="container mt-5 pt-5">
         <div class="Checkout">
             <form method="POST">
-                <div class="row">
+                <div class="row ">
                     <div class="col-6">
                         <h3>Billing Address</h3>
                         <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Forhad Uddin">
+                        <input type="text" id="fname" name="firstname" placeholder="Jhon Doe">
                         <label for="email"><i class="fa fa-envelope"></i> Email</label>
                         <input type="text" id="email" name="email" 
                         value="<?php echo $_SESSION['username'] ?>" readonly disabled>
                         <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                        <input type="text" id="adr" name="address" placeholder="20/27 Bashundhara Chittagong">
+                        <input type="text" id="adr" name="address" placeholder="20/27 Bashundhara Chittagong" required>
                         <label for="city"><i class="fa fa-institution"></i> City</label>
-                        <input type="text" id="city" name="city" placeholder="Chittagong">
-                        <input type="checkbox" id="shipping"  name="shipping">            
+                        <input type="text" id="city" name="city" placeholder="Chittagong" required>          
                     </div>
 
                     <div class="col-6">
@@ -80,10 +79,10 @@
                             <img width="80px" src="./assets/images/bkash.svg" alt="Bkash">
                             <img width="80px" src="./assets/images/Nagad.svg" alt="Nagad">
                         </div>
-                        <label for="cname">Send out number</label>
-                        <input type="text" id="cname" name="cardname" placeholder="+880 1781789178">
-                        <label for="ccnum">Enter Amount</label>
-                        <input type="text" id="ccnum" name="cardnumber" placeholder="999">
+                        <label for="cname">Send out number <span style="color: red;">*</span></label>
+                        <input type="text" id="cname" name="cardname" placeholder="+880 1781789178" required>
+                        <label for="ccnum">Enter Amount <span style="color: red;">*</span></label>
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="999" required>
                         <label for="expmonth">Your Comments (if any)</label>
                         <input type="text" id="expmonth" name="expmonth">
                         <input type="submit" value="Continue to checkout" name="checkout" class="btn">

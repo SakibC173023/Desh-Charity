@@ -34,7 +34,7 @@
                 <div class="col-lg-2 col-md-3 col-6 footer-list-29 mt-md-0 mt-4">
                     <ul>
                         <h6 class="footer-title-29">Quick Links</h6>
-                        <li><a class=" " href="products.html">Products</a></li>
+                        <li><a class=" " href="products.php">Products</a></li>
                         <li><a class=" " href="donate.html">Donate Us</a></li>
 
                     </ul>
@@ -42,7 +42,7 @@
                 <div class="col-lg-2 col-md-3 col-6 ps-lg-5 ps-lg-4 footer-list-29 mt-md-0 mt-4">
                     <ul>
                         <h6 class="footer-title-29">Explore</h6>
-                        <li><a class=" " href="about.html">About Us</a></li>
+                        <li><a class=" " href="about.php">About Us</a></li>
 
                     </ul>
                 </div>

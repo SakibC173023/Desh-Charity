@@ -22,7 +22,6 @@
                         }else
                         {
                             echo "<script>alert('Product is Already in the Cart...')</script>";
-                            echo "<script>window.location = 'baby-care.php'</script>";
                         }
                     }else
                     {

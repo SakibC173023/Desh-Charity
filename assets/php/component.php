@@ -47,7 +47,7 @@ function babyCare($productid,$productname,$productprice,$productimg){
     $elements = "
     
     <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
-                    <form method=\"post\">
+                    <form action=\"\" method=\"post\">
                         <div class=\"card shadow\">
                             <div>
                                 <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid card-img-top\">
@@ -114,16 +114,16 @@ function cartElement($productimg, $productname, $productprice, $productid){
     <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
         <div class=\"border bg-white rounded\">
             <div class=\"row p-2\">
-                <div class=\"col-md-6\">
-                    <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid\" >
+                <div class=\"col-md-5\">
+                    <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid\" style=\"height: 90px;\">
                 </div>
-                <div class=\"col-md-6\">
+                <div class=\"col-md-7\">
                     <h5 class=\"pt-2\">$productname</h5>
                     <small class=\"text-secondary\">Seller: Desh Charity</small>
                     <h5 class=\"pt-2\">$$productprice</h5>
                     
                 </div>
-                <div class=\"col-md-6 d-block mx-auto mt-4 mb-2\">
+                <div class=\"col-md-6 d-block mx-auto my-2\">
                     <div>
                         <button type=\"submit\" class=\"btn btn-danger\" name=\"remove\">Remove Item</button>
                     </div>
