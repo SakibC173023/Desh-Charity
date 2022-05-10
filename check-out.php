@@ -18,7 +18,7 @@
         $mail->Port= 587;
         
         $mail->setFrom('deshcharity1@gmail.com', 'Desh Charity');
-        $mail->addAddress($_SESSION['username']);
+        $mail->addAddress($_SESSION['email']);
         
         $mail->isHTML(true);
                     
@@ -45,7 +45,7 @@
             ?>
 
             <script>
-                window.alert(`An OTP has been sent to ${$_SESSION['username']}`)
+                window.alert(`An OTP has been sent to ${$_SESSION['email']}`)
             </script>
 <?php
     }
@@ -66,7 +66,7 @@
                         <input type="text" id="fname" name="firstname" placeholder="Jhon Doe">
                         <label for="email"><i class="fa fa-envelope"></i> Email</label>
                         <input type="text" id="email" name="email" 
-                        value="<?php echo $_SESSION['username'] ?>" readonly disabled>
+                        value="<?php echo $_SESSION['email'] ?>" readonly disabled>
                         <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
                         <input type="text" id="adr" name="address" placeholder="20/27 Bashundhara Chittagong" required>
                         <label for="city"><i class="fa fa-institution"></i> City</label>

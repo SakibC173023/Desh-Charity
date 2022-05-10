@@ -114,13 +114,10 @@ if (isset($_POST['remove']))
                     </div>
                 </div>
             </div>
-
-            <div class="mt-2">
-                <button type="button" style="background: #32CD32;" class="btn btn-lg btn-block mt-2 "><a class ="text-white text-decoration-none"  href="./check-out.php">
-                       Proceed Checkout <i class="far fa-credit-card text-primary ps-2"></i> </a></button>
+                <div class="mt-2">
+                    <a style="background: #32CD32;" class ="text-white text-decoration-none btn btn-lg btn-block mt-2"  href="./check-out.php">Proceed Checkout <i class="far fa-credit-card text-primary ps-2"></i></a>
                 </div>
             </div>
-         
         </div>
     </div>
 </div>

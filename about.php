@@ -22,10 +22,10 @@
                 <div class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
                     <h3 class="title-style">Why choose us?</h3>
                     <p class="mt-4">Desh charity is a web application where people from Chittagong city can donate food, clothes to Desh charity and even purchase new clothes and toys from Desh charity so that a part of its profits from his/her purchase will be donated for the charity. The main purpose of this application is to reduce food waste as well as to meet the demand for clothing and also appetite suppression of needy people.</p>
-                    <ul class="mt-4 list-style-lis pt-lg-1">
-                        <li><i class="fas fa-check-circle"></i>Needy People who cannot afford food and clothes will be benefited most.</li>
-                        <li><i class="fas fa-check-circle"></i>To meet the food and clothing needs of sidewalks and helpless people.</li>
-                        <li><i class="fas fa-check-circle"></i>To encourage people to donate food and clothes.</li>
+                    <ul class="mt-4 list-unstyled pt-lg-1">
+                        <li><i class="fas fa-check-circle me-2" style="color: #fbb034;"></i>Needy People who cannot afford food and clothes will be benefited most.</li>
+                        <li><i class="fas fa-check-circle me-2" style="color: #fbb034;"></i>To meet the food and clothing needs of sidewalks and helpless people.</li>
+                        <li><i class="fas fa-check-circle me-2" style="color: #fbb034;"></i>To encourage people to donate food and clothes.</li>
                     </ul>
                     <a href="donate.html" class="btn btn-style mt-5">Donate Now</a>
                 </div>

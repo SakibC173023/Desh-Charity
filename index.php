@@ -32,7 +32,7 @@ elseif (isset($_GET['packStts']) == 'package-submitted'){
 
 
 if (isset($_POST['add'])) {
-    if(isset($_SESSION['username'])){
+    if(isset($_SESSION['email'])){
         if (isset($_SESSION['Cart'])){
             $item_array_id = array_column($_SESSION['Cart'], 'product_id');
             if (in_array($_POST['product_id'], $item_array_id))
@@ -76,8 +76,8 @@ if (isset($_POST['add'])) {
         <!-- banner section -->
         <section id="home" class="banner py-5">
             <div class="banner-content">
-                <div class="container py-5 mt-5">
-                <h2 class="m-0"><?php if(!isset($_SESSION['username'])) { echo 'Please login before purchase';} ?></h2>
+                <div class="container pb-5 mt-5">
+                <h4 class="m-0"><?php if(!isset($_SESSION['email'])) { echo 'Please login';} ?></h4>
                     <div class="row d-flex align-items-center pt-sm-5 pt-4">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
                             <h1 class="mb-lg-4 mb-3 fw-bold">Men Deserve The<span
@@ -209,12 +209,6 @@ if (isset($_POST['add'])) {
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Lungi</p>
-                            <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                    <path
-                                        d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Bread</p>
                             <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
@@ -227,8 +221,14 @@ if (isset($_POST['add'])) {
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Water bottle - 2L</p>
-                            <button type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"><a class=" " href="package.php?status=fp" target="_blank">Choose Plan</a></button>
+                                </svg> Fruits 1/2 Kg</p>
+                            <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path
+                                        d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                </svg> Some Vegetables</p>
+                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=sp" target="_blank">Choose Plan</a>
                         </div>
                     </div>
                 </div>
@@ -256,20 +256,20 @@ if (isset($_POST['add'])) {
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Bread</p>
+                                </svg> Bread &amp; Banana</p>
                             <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Banana half dozen</p>
+                                </svg> Fruits 1Kg</p>
                             <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Water bottle - 2L</p>
-                            <button type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"><a class=" " href="package.php?status=sp" target="_blank">Choose Plan</a></button>
+                                </svg> Vegetables</p>
+                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=sp" target="_blank">Choose Plan</a> 
                         </div>
                     </div>
                 </div>
@@ -288,7 +288,7 @@ if (isset($_POST['add'])) {
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> T-shirt</p>
+                                </svg> 2 T-shirt</p>
                             <p class="text-white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -300,22 +300,20 @@ if (isset($_POST['add'])) {
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Bread</p>
+                                </svg> Bread &amp; Banana</p>
                             <p class="text-white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Banana half dozen</p>
+                                </svg> Fruits 1Kg</p>
                             <p class="text-white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Water bottle - 2L</p>
-                            <button class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-4"
-                                type="submit"><a class=" " href="package.php?status=tp" target="_blank">Choose
-                                    Plan</a></button>
+                                </svg> Cash 200BDT</p>
+                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=sp" target="_blank">Choose Plan</a>
                         </div>
                     </div>
                 </div>
@@ -331,7 +329,7 @@ if (isset($_POST['add'])) {
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> T-shirt</p>
+                                </svg> 2 T-shirt</p>
                             <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -343,19 +341,19 @@ if (isset($_POST['add'])) {
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Bread</p>
+                                </svg> Sharee</p>
                             <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Banana half dozen</p>
+                                </svg> Bread, Banana, Fruits</p>
                             <p class="package-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                </svg> Water bottle - 2L</p>
+                                </svg> Cash 500BDT</p>
                             <button class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"
                                 type="submit"><a class=" " href="package.php?status=fop" target="_blank">Choose
                                     Plan</a></button>

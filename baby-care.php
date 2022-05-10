@@ -9,7 +9,7 @@ $database->connect();
 $database->createTable('babyCare');
 
 if(isset($_POST['add'])){
-    if(isset($_SESSION['username'])){
+    if(isset($_SESSION['email'])){
         if (isset($_SESSION['Cart'])){
             $item_array_id = array_column($_SESSION['Cart'],'product_id');
             if (in_array($_POST['product_id'],$item_array_id))

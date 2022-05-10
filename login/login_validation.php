@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
 
     if($row['userEmail'] == $mail and $row['userPass'] == $pass){
         echo "<p>Welcome $mail</p>";
-        $_SESSION['username'] = $mail;
+        $_SESSION['email'] = $mail;
         header('location:../index.php');
     }else{
         header('location:../login.php');

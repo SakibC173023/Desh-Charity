@@ -49,7 +49,7 @@
                                 <a class="nav-link" href="about.php">About us</a>
                             </li>
                             <?php
-                                if(isset($_SESSION['username'])){
+                                if(isset($_SESSION['email'])){
                                     echo "<li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"login/logout.php\">Logout</a>
                                 </li>";
@@ -59,7 +59,10 @@
                                 </li>";
                                 }
                             ?>
-                            <li class="position-relative">
+                            <?php
+                            if(isset($_SESSION['Cart'])){
+                            ?>
+                                <li class="position-relative">
                                 <a href="cart.php" class="nav-link">
                                     <h5 class="cart">
                                         <i class="fas fa-shopping-cart"></i>
@@ -71,12 +74,14 @@
                                                 }else{
                                                     echo "<span id=\"cart_count\" class=\"text-white\">0</span>";
                                                 }
-
                                             ?>
                                         </span>
                                     </h5>
                                 </a>
                             </li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>

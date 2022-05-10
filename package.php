@@ -1,17 +1,23 @@
 <?php
+session_start();
 include_once 'assets/php/create-db.php';
 $db = new Dbh();
+
     $status = $_GET['status'];
     
-    if(isset($_POST['submit'])){
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $amount = $_POST['amount'];
-        $sendNo = $_POST['number'];
-
-        $sql = "INSERT INTO package(Name,Email,Amount,Send_number) VALUES('$name','$email','$amount','$sendNo')";
-        $stmt = $db->connect()->query($sql);
-        header('location:index.php?packStts=package-submitted');
+    if(isset($_SESSION['email'])){
+        if(isset($_POST['submit'])){
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $amount = $_POST['amount'];
+            $sendNo = $_POST['number'];
+    
+            $sql = "INSERT INTO package(Name,Email,Amount,Send_number) VALUES('$name','$email','$amount','$sendNo')";
+            $stmt = $db->connect()->query($sql);
+            header('location:index.php?packStts=package-submitted');
+        }
+    }else{
+        header('location:index.php');
     }
 ?>
 

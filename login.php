@@ -44,7 +44,7 @@ session_start();
                                 <a class="nav-link" href="signup.php">Sign Up</a>
                             </li>
                             <?php
-                                if(isset($_SESSION['username'])){
+                                if(isset($_SESSION['email'])){
                                     echo "<li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"login/logout.php\">Logout</a>
                                 </li>";

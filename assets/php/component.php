@@ -179,11 +179,11 @@ function OffcanvasCart(){
                         <h5> Product(s) Quantity : $items</h5>
                         <h5> Product(s) Price : $total</h5>
                     </div>
-                    <button type=\"button\" class=\"btn btn-primary btn-lg btn-block mt-4\"><a class =\"text-white\" data-bs-toggle=\"offcanvas\" href=\"./cart.php\" aria-controls=\"offcanvasExample\">
-                            Review Cart <i class=\"fas fa-shopping-cart ps-2\"></i> </a></button>
-        
-                    <button type=\"button\" style=\"background: #32CD32;\" class=\"btn btn-lg btn-block mt-2\"><a class =\"text-white\" data-bs-toggle=\"offcanvas\" href=\"./check-out.php\" aria-controls=\"offcanvasExample\">
-                        Check Out <i class=\"far fa-credit-card text-primary ps-2\"></i> </a></button>
+                    <a class =\"text-white btn btn-primary btn-lg btn-block mt-4\" data-bs-toggle=\"offcanvas\" href=\"./cart.php\" aria-controls=\"offcanvasExample\">
+                            Review Cart <i class=\"fas fa-shopping-cart ps-2\"></i> </a>
+
+                    <a style=\"background: #32CD32;\" class =\"text-white btn btn-lg btn-block mt-2\" data-bs-toggle=\"offcanvas\" href=\"./check-out.php\" aria-controls=\"offcanvasExample\">
+                            Check Out <i class=\"far fa-credit-card text-primary ps-2\"></i> </a>
                 </div>
              </div>
         </div>
