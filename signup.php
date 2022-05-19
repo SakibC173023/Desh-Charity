@@ -52,17 +52,17 @@
     <form action="login/signup_validation.php" method="post">
         <li>
             <label>
-                <input type="text" name="email" class="text" value="Email">
+                <input type="text" name="email" class="w-100" placeholder="Email" autocomplete="off">
             </label><a href="#" class=" icon user"></a>
         </li>
         <li>
             <label>
-                <input type="password" name="pass" class="text" value="Password">
+                <input type="password" name="pass" class="w-100" placeholder="Password">
             </label><a href="#" class=" icon lock"></a>
         </li>
         <li>
             <label>
-                <input type="password" name="rpass" class="text" value="Confirm Pass">
+                <input type="password" name="rpass" class="w-100" placeholder="Confirm Pass">
             </label><a href="#" class=" icon lock"></a>
         </li>
         <div class ="forgot">

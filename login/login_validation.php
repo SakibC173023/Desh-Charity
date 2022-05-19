@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
         $_SESSION['email'] = $mail;
         header('location:../index.php');
     }else{
-        header('location:../login.php');
+        header("location:../login.php?error='email-password-err'");
     }
 
 }

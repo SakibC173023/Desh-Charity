@@ -59,6 +59,7 @@ if (isset($_POST['remove']))
                 <div class="row g-2">
                     <?php
                     $total = 0;
+                    $_SESSION['total_price'] = 0;
                     if (isset($_SESSION['Cart'])){
                         $product_id = array_column($_SESSION['Cart'],'product_id');
 
@@ -71,6 +72,7 @@ if (isset($_POST['remove']))
                                 if ($row['id'] == $id){
                                     cartElement($row['product_image'],$row['product_name'],$row['product_price'],$row['id']);
                                     $total = $total + (int)$row['product_price'];
+                                    $_SESSION['total_price'] = $total;
                                 }
                             }
                         }
@@ -92,7 +94,6 @@ if (isset($_POST['remove']))
                 <div class="row price-details">
                     <div class="col-md-6">
                         <?php
-
                             if (isset($_SESSION['Cart'])){
                                 $count  = count($_SESSION['Cart']);
                                 echo "<h6>Price ($count items)</h6>";

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once 'dbh_connect.php';
 
  if(isset($_POST['submit']))
@@ -11,7 +12,7 @@ include_once 'dbh_connect.php';
          header('location:../signup.php');
      }
 
-     $sql = "SELECT * FROM users WHERE userEmail = '$mail' and userPass = '$pass'";
+     $sql = "SELECT * FROM users WHERE userEmail = '$mail'";
      $stmt = connect()->query($sql);
      $row = $stmt->fetch();
 
@@ -21,7 +22,8 @@ include_once 'dbh_connect.php';
      }else{
          $sql = "INSERT INTO users(userEmail,userPass) VALUES ('$mail','$pass')";
          connect()->query($sql);
-         header('location:../login.php');
+         $_SESSION['email'] = $mail;
+         header('location:../index.php');
      }
 
  }

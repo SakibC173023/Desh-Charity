@@ -1,19 +1,49 @@
 <?php
+    session_start();
     include_once '../login/dbh_connect.php';
+
+    if(isset($_SESSION['admin'])){
+        header('location:./admin-dashboard.php');
+        return;
+    }
+
+    if(isset($_POST['submit']))
+    {
+        $mail = $_POST['email'];
+        $pass = $_POST['pass'];
+
+        $sql = 'SELECT * FROM users WHERE userEmail = ? and userPass = ?';
+        $stmt = connect()->prepare($sql);
+        $stmt->execute([$mail,$pass]);
+        $row = $stmt->fetch();
+
+        if($row['userEmail'] == $mail and $row['userPass'] == $pass){
+            $_SESSION['admin'] = $mail;
+            header('location:./admin-dashboard.php');
+        }else{
+            header('location:./admin.php');
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
+        <title>Admin Login</title>
         <meta charset="utf-8">
+        <link href="../assets/css/style.css" rel='stylesheet' type='text/css' />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin Panel</title>
-        <!-- Bootstrap -->
+        <!--webfonts-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700' rel='stylesheet'
+            type='text/css'>
+        <!--//webfonts-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- font-awesome -->
         <script src="https://kit.fontawesome.com/e627d5dbde.js" crossorigin="anonymous"></script>
         <!-- Template CSS Style link -->
         <link rel="stylesheet" href="../assets/css/style-starter.css">
+        <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!-- Template CSS Style link -->
         <style>
             main{
                 margin-bottom: 150px;
@@ -37,173 +67,40 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 pe-5 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active text-warning" aria-current="page" href="../index.php">Home</a>
+                                <a class="nav-link text-warning" aria-current="page" href="../index.php">Home</a>
                             </li>
+                            <?php
+                                if(isset($_SESSION['admin'])){
+                                    echo "<li class=\"nav-item\">
+                                        <a class=\"nav-link\" href=\"admin-logout.php\">Logout</a>
+                                    </li>";
+                                }else{
+                                    echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"login.php\">Login</a>
+                                </li>";
+                                }
+                            ?>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
 
-    <main class="container-fluid mt-5 pt-5">
-            <section>
-                <div class="row gap-3">
-                    <!-- Donation Request Part -->
-                    <div class="col-8 mx-auto shadow-lg rounded p-3">
-                    <h2>All Donation Requests</h2>
-                        <table class="table table-primary">
-                            <tr class="text-center table-active">
-                                <th>Donor Name</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                                <th>Phone</th>
-                                <th>Donation Type</th>	
-                                <th>Comments</th>	
-                                <th>Image</th>	
-                                <th>Status</th>
-                            </tr>
-                            <?php
-                                $sql = "SELECT * FROM donation_req";
-                                $stmt = connect()->query($sql);
-                                $reqCount = 0;
-                                while($row = $stmt->fetch())
-                            {
-                                $reqCount++;
-                            ?>
-                            <tr class="text-center shadow-sm rounded">
-                                <td class="table-primary"><?php echo $row['donorName'] ?></td>
-                                <td class="table-secondary"><?php echo $row['donorEmail'] ?></td>
-                                <td class="table-primary"><?php echo $row['donorAddress'] ?></td>
-                                <td class="table-danger"><?php echo $row['donorPhone'] ?></td>
-                                <td class="table-success"><?php echo $row['donationType'] ?></td>
-                                <td class="table-info"><?php echo $row['comments'] ?></td>
-                                <td class="table-light"><?php echo "<img src='../{$row['image']}' width='120' height='120'>" ?></td>
-                                <td class="text-center table-light">
-                                    <a class="btn btn-success mb-2" role="button" type="submit" href="approve-reject-validation.php?id=<?php echo $row['donateID'] ?>&status=approved">Approve</a>
-                                    
-                                    <a class="btn btn-danger" role="button" type="submit" href="approve-reject-validation.php?id=<?php echo $row['donateID'] ?>&status=rejected">Reject</a>
-                                </td>
-                            </tr>
-                            <?php
-                        
-                            }
-                            ?>
-                        </table>
-                        <?php
-                            if(!$reqCount){
-                                echo "<h3 class='text-center'>No New Request!</h3>";
-                            }
-                        ?>
+    <main class="container-fluid">
+        <div class="login-form">
+                <h1>Admin Login</h1>
+                <form method="post">
+                    <li>
+                        <input type="text" name="email" placeholder="Enter email" required autocomplete="off"><a href="#" class="icon user"></a>
+                    </li>          
+                    <li>          
+                        <input type="password" name="pass" placeholder="Enter password" required><a href="#" class="icon lock"></a>
+                    </li> 
+                    <div class="forgot">
+                        <input type="submit" name="submit" value="Login"> <a href="#" class="icon arrow"></a>
                     </div>
-
-                    <!-- Summary Part -->
-                    <div class="col-3 mx-auto shadow-lg rounded p-3">
-                        <h3>F/C Donation Gist</h3>
-                        <table class="table table-striped text-center">
-                            <tr>
-                                <th>New Request(s)</th>
-                                <th>Approved</th>
-                                <th>Rejected</th>      
-                            </tr>
-                            <tr>
-                            <?php
-                                $approvedSql = "SELECT * FROM approved_donation";
-                                $rejectedSql = "SELECT * FROM rejected_donation";
-                                $approvedStmt = connect()->query($approvedSql);
-                                $rejectedStmt = connect()->query($rejectedSql);
-                                $approvedCount = 0;
-                                $rejectedCount = 0;
-                                while($row = $approvedStmt->fetch()){
-                                    $approvedCount++;
-                                }
-                                while($row = $rejectedStmt->fetch()){
-                                    $rejectedCount++;
-                                }
-                            ?>
-                                <td class="table-info fw-bold"><?php echo $reqCount ?></td>
-                                <td class="table-primary fw-bold"><?php echo $approvedCount ?></td>
-                                <td class="table-light fw-bold"><?php echo $rejectedCount ?></td>
-                            </tr>
-                        </table>
-                        
-                        <h3>Package Donation Gist</h3>
-                        <table class="table table-striped text-center">
-                            <tr>
-                                <th>bkash/Nagad Transaction(s)</th>
-                                <th>Amount (total)</th>     
-                            </tr>
-                            <tr>
-                            <?php
-                                $package = "SELECT * FROM package";
-                                $stmt = connect()->query($package);
-                                $reqCount = 0;
-                                $amount = 0;
-                                while($row = $stmt->fetch()){
-                                    $amount += $row['Amount'];
-                                    $reqCount++;
-                                }
-                            ?>
-                                <td class="table-primary fw-bold"><?php echo $reqCount ?></td>
-                                <td class="table-warning fw-bold"><?php echo $amount ?> BDT</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <!-- Approved Request Part -->
-                    <div class="col-6 mx-auto shadow-lg rounded mt-5 p-3">
-                        <h2>Approved Log</h2>
-                        <table class="table table-striped text-center">
-                            <tr>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Address</th>   
-                                <th>Status</th>   
-                            </tr>
-                            <tr>
-                            <?php
-                                $sql = "SELECT * FROM approved_donation";
-                                $stmt2 = connect()->query($sql);
-                                while($row = $stmt2->fetch())
-                                {
-                            ?>
-                                <td><?php echo $row['Name'] ?></td>
-                                <td><?php echo $row['Phone'] ?></td>
-                                <td><?php echo $row['Address'] ?></td>
-                                <td><?php echo $row['Status'] ?></td>
-                            </tr>
-                            <?php
-                                }
-                            ?>
-                        </table>
-                    </div>
-
-                    <!-- Rejected Request Part -->
-                    <div class="col-5 mx-auto shadow-lg rounded mt-5 p-3">
-                        <h2>Rejected Log</h2>
-                        <table class="table table-striped text-center">
-                            <tr>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Address</th>     
-                            </tr>
-                            <tr>
-                            <?php
-                                $sql = "SELECT * FROM rejected_donation";
-                                $stmt2 = connect()->query($sql);
-                                while($row = $stmt2->fetch())
-                                {
-                            ?>
-                                <td><?php echo $row['Name'] ?></td>
-                                <td><?php echo $row['Phone'] ?></td>
-                                <td><?php echo $row['Address'] ?></td>
-                            </tr>
-                            <?php
-                                }
-                            ?>
-                        </table>
-                    </div>
-                </div>
-            </section>
+                </form>
+            </div>   
     </main>
 
 <?php

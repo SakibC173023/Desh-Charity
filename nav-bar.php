@@ -7,8 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Desh Charity Web Application</title>
         <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- font-awesome -->
         <script src="https://kit.fontawesome.com/e627d5dbde.js" crossorigin="anonymous"></script>
         <!-- Template CSS Style link -->
@@ -51,8 +50,8 @@
                             <?php
                                 if(isset($_SESSION['email'])){
                                     echo "<li class=\"nav-item\">
-                                    <a class=\"nav-link\" href=\"login/logout.php\">Logout</a>
-                                </li>";
+                                        <a class=\"nav-link\" href=\"login/logout.php\">Logout</a>
+                                    </li>";
                                 }else{
                                     echo "<li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"login.php\">Login</a>

@@ -1,6 +1,7 @@
 
     <!-- Nav-bar Star-->
     <?php 
+        session_start();
         include_once 'nav-bar.php';
     ?>
     <!-- Nav-bar End -->

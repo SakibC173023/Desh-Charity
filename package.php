@@ -72,8 +72,14 @@ $db = new Dbh();
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="products.php">Products</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Products
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="baby-care.php">Baby Care</a></li>
+                                    <li><a class="dropdown-item" href="toys.php">Toys</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.php">About us</a>
@@ -81,9 +87,17 @@ $db = new Dbh();
                             <li class="nav-item">
                                 <a class="nav-link" href="volunteer.php">Be a Volunteer</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html">Log In</a>
-                            </li>
+                            <?php
+                                if(isset($_SESSION['email'])){
+                                    echo "<li class=\"nav-item\">
+                                        <a class=\"nav-link\" href=\"login/logout.php\">Logout</a>
+                                    </li>";
+                                }else{
+                                    echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"login.php\">Login</a>
+                                </li>";
+                                }
+                            ?>
                         </ul>
 
                     </div>

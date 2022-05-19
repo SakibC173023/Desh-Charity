@@ -9,24 +9,33 @@ $database->connect();
 $database->createTable('demoProduct');
 
 if (isset($_GET['donationErr']) == 'already-submitted'){
+    $status = 'Your donation already submitted';
     ?>
-    <script>
-        alert('Your donation already submitted');
-    </script>
+        <script src="./assets/js/toast.js"></script>
     <?php
 }
 elseif (isset($_GET['donationStts']) == 'donation-success'){
+    $status = 'Your request has been submitted successfully';
     ?>
-    <script>
-        alert('Your request has been submitted successfully');
-    </script>
+        <script src="./assets/js/toast.js"></script>
     <?php
 }
 elseif (isset($_GET['packStts']) == 'package-submitted'){
+    $status = 'Your package form has been submitted successfully';
     ?>
-    <script>
-        alert('Your package form has been submitted successfully');
-    </script>
+        <script src="./assets/js/toast.js"></script>
+    <?php
+}
+elseif (isset($_GET['status']) == 'login-required'){
+    $status = 'Please Login First'
+    ?>
+        <script src="./assets/js/toast.js"></script>
+    <?php
+}
+elseif (isset($_GET['status']) == 'checkout-success'){
+    $status = 'Congrats! An email has been sent to you. Thanks!'
+    ?>
+        <script src="./assets/js/toast.js"></script>
     <?php
 }
 
@@ -63,6 +72,8 @@ if (isset($_POST['add'])) {
             );
             $_SESSION['Cart'][0] = $item_array;
         }
+    }else{
+        header('location: ./index.php?status=login-required');
     }
 }
 ?>
@@ -77,7 +88,6 @@ if (isset($_POST['add'])) {
         <section id="home" class="banner py-5">
             <div class="banner-content">
                 <div class="container pb-5 mt-5">
-                <h4 class="m-0"><?php if(!isset($_SESSION['email'])) { echo 'Please login';} ?></h4>
                     <div class="row d-flex align-items-center pt-sm-5 pt-4">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
                             <h1 class="mb-lg-4 mb-3 fw-bold">Men Deserve The<span
@@ -228,7 +238,7 @@ if (isset($_POST['add'])) {
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Some Vegetables</p>
-                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=sp" target="_blank">Choose Plan</a>
+                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=fp" target="_blank">Choose Plan</a>
                         </div>
                     </div>
                 </div>
@@ -313,7 +323,7 @@ if (isset($_POST['add'])) {
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Cash 200BDT</p>
-                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=sp" target="_blank">Choose Plan</a>
+                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=tp" target="_blank">Choose Plan</a>
                         </div>
                     </div>
                 </div>
@@ -354,9 +364,7 @@ if (isset($_POST['add'])) {
                                     <path
                                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg> Cash 500BDT</p>
-                            <button class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3"
-                                type="submit"><a class=" " href="package.php?status=fop" target="_blank">Choose
-                                    Plan</a></button>
+                            <a type="submit" class="btn btn-outline-secondary border-0 bg-light rounded-pill text-primary fw-bold mt-3" href="package.php?status=fop" target="_blank">Choose Plan</a>
                         </div>
                     </div>
                 </div>
@@ -567,7 +575,20 @@ if (isset($_POST['add'])) {
         </div>
         <!-- //blog block -->
 
-      
+        <!-- Toast -->
+        <div class="position-fixed bottom-0 end-0 p-2" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto fs-6">
+                        <span class="badge bg-danger badge-pill">1 Notification</span>
+                    </strong>
+                    <small>1s ago..</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-danger"><?php echo $status ?></div>
+            </div>
+        </div>
+
         <!-- cart Offcanvas start -->
         <?php 
         if(isset($_SESSION['Cart'])){

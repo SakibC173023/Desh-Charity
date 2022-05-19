@@ -1,6 +1,11 @@
 <?php
-
-session_start();
+    session_start();
+    if (isset($_GET['error']) == 'email-password-err'){
+        $status = 'Your email or password is incorrect!';
+        ?>
+            <script src="./assets/js/toast.js"></script>
+        <?php
+    }
 ?>
 
 <!DOCTYPE html>
@@ -67,26 +72,41 @@ session_start();
             <h1>Login</h1>
             <form action="login/login_validation.php" method="post">
                 <li>
-                    <label>Email</label>
-                    <input type="text" name="email" required><a href="#" class=" icon user"></a>
+                    <input type="text" name="email" placeholder="Enter email" required autocomplete="off"><a href="#" class="icon user"></a>
                 </li>          
                 <li>          
-                    <label>Password</label>
-                    <input type="text" name="pass" required><a href="#" class=" icon lock"></a>
+                    <input type="password" name="pass" placeholder="Enter password" required><a href="#" class="icon lock"></a>
                 </li> 
                 <div class="forgot">
-                    <input type="submit" name="submit" value="Login"> <a href="#" class=" icon arrow"></a>
+                    <input type="submit" name="submit" value="Login"> <a href="#" class="icon arrow"></a>
                     <h3><a href="#">Forgot Password?</a></h3>
                 </div>
             </form>
         </div>
         <!--//End-login-form-->
+
         <!-----start-copyright---->
         <div class="copy-right">
             <p style="color: deepskyblue">Design by <a href="http://w3layouts.com">Desh Charity</a></p>
         </div>
         <!-----//end-copyright---->
 
-    </body>
+        <!-- Toast -->
+        <div class="position-fixed bottom-0 end-0 p-2" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto fs-6">
+                        <span class="badge bg-danger badge-pill">1 Notification</span>
+                    </strong>
+                    <small>1s ago..</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-danger"><?php echo $status ?></div>
+            </div>
+        </div>
 
+         <!-- bootstrap js-->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- //bootstrap js-->
+    </body>
 </html>
