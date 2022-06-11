@@ -1,6 +1,32 @@
 <?php
     session_start();
 
+    include_once 'assets/php/create-db.php';
+    include_once 'assets/php/component.php';
+
+    $db = new Dbh();
+    $db->connect();
+
+    $total = 0;
+    $_SESSION['total_price'] = 0;
+    if (isset($_SESSION['Cart'])){
+        $product_id = array_column($_SESSION['Cart'],'product_id');
+
+        $result1 = $db->getDemoProduct('demoProduct');
+        $result2 = $db->getBabyCare('babycare');
+        $result3 = $db->getToys('toys');
+
+        while($row = mysqli_fetch_assoc($result1) OR $row = mysqli_fetch_assoc($result2) OR $row = mysqli_fetch_assoc($result3)){
+            foreach ($product_id as $id){
+                if ($row['id'] == $id){
+                    $total = $total + (int)$row['product_price'];
+                    $_SESSION['total_price'] = $total;
+                }
+            }
+        }
+
+        }
+
     if(isset($_GET['error']) == 'amount-err'){
         $status = "Please enter correct amount!";
         ?>
@@ -25,7 +51,7 @@
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username ='deshcharity1@gmail.com';
-        $mail->Password ='Desh!@#Charity';
+        $mail->Password ='ytwmxjzihkifrzzw';
         $mail->SMTPSecure = 'tls';
         $mail->Port= 587;
         
@@ -103,7 +129,7 @@
                         <div class="col-md-6">
                             <h3>Billing Address</h3>
                             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Jhon Doe">
+                            <input type="text" id="fname" name="firstname" placeholder="Jhon Doe" required>
                             <label for="email"><i class="fa fa-envelope"></i> Email</label>
                             <input type="text" id="email" name="email" 
                             value="<?php echo $_SESSION['email'] ?>" readonly disabled>
@@ -121,8 +147,8 @@
                             </div>
                             <label for="number">Send out number <span style="color: red;">*</span></label>
                             <input type="text" id="number" name="number" placeholder="+880 1781789178" required>
-                            <label for="amount">Enter Amount <span style="color: red;">*</span></label>
-                            <input type="text" id="amount" name="amount" placeholder="1000" required>
+                            <label for="amount">Amount</label>
+                            <input type="text" id="amount" class="text-warning" name="amount" placeholder="1000" value="<?php echo $_SESSION['total_price'] ?>" readonly>
                             <label for="comment">Your Comments (if any)</label>
                             <input type="text" id="comment" name="comment">
                             <input type="submit" value="Continue to Checkout" name="checkout" class="btn">

@@ -32,8 +32,8 @@ elseif (isset($_GET['status']) == 'login-required'){
         <script src="./assets/js/toast.js"></script>
     <?php
 }
-elseif (isset($_GET['status']) == 'checkout-success'){
-    $status = 'Congrats! An email has been sent to you. Thanks!'
+elseif (isset($_GET['checkout'])){
+    $status = 'Checkout successful!'
     ?>
         <script src="./assets/js/toast.js"></script>
     <?php
@@ -44,6 +44,7 @@ if (isset($_POST['add'])) {
     if(isset($_SESSION['email'])){
         if (isset($_SESSION['Cart'])){
             $item_array_id = array_column($_SESSION['Cart'], 'product_id');
+            
             if (in_array($_POST['product_id'], $item_array_id))
             {
                 if(count($item_array_id) == 8)
@@ -96,7 +97,7 @@ if (isset($_POST['add'])) {
                             </h1>
                             <p class="banner-sub">Make Helpless People Smile On Their Faces At Least For a While</p>
                             <div class="d-flex align-items-center buttons-banner">
-                                <a href="donate.html" class="btn btn-style mt-lg-2">Donate Now </a>
+                                <a href="donate.php" class="btn btn-style mt-lg-2">Donate Now </a>
                             </div>
                         </div>
                         <div

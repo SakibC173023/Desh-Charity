@@ -78,8 +78,9 @@
         if($otp != $otp_code){
             header("location:./otp-verification.php?status=otp-invalid");
         }else{
-            $_SESSION['Cart'] = [];
-            header("location:../index.php?status=checkout-success");
+            unset($_SESSION['Cart']);
+            unset($_SESSION['total_price']);
+            header("location:../index.php?checkout=success");
             require "Mailer/PHPMailerAutoload.php";
             $mail = new PHPMailer();
 
@@ -87,7 +88,7 @@
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username ='deshcharity1@gmail.com';
-            $mail->Password ='Desh!@#Charity';
+            $mail->Password ='ytwmxjzihkifrzzw';
             $mail->SMTPSecure = 'tls';
             $mail->Port= 587;
 
@@ -96,7 +97,7 @@
 
             $mail->isHTML(true);
             $mail->Subject="Verification Successful";
-            $mail->Body="<p>Dear user, </p> <h3>Your verification have been successful! You can sign in now. <br></h3>
+            $mail->Body="<p>Dear user, </p> <h3>Your checkout have been successful! Product will be delivered within 7 days. Thanks for being with us. <br></h3>
             <br><br>
             With regrads,<br>
             Forhad Uddin<br><br>

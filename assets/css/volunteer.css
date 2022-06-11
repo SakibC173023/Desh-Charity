@@ -2,8 +2,8 @@ html,
 body {
     min-height: 100%;
 }
-form,
-input,
+.volunteer-form,
+.volunteer-input,
 label {
     padding: 0;
     margin: 0;
@@ -36,7 +36,7 @@ textarea {
     margin-bottom: 150px;
     padding: 20px;
 }
-form {
+.volunteer-form {
     width: 100%;
     padding: 20px;
     border-radius: 6px;
@@ -58,18 +58,18 @@ form {
     width: 100%;
     height: 100%;
 }
-input,
+.volunteer-input,
 select,
 textarea {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-input {
+.volunteer-input {
     width: calc(100% - 10px);
     padding: 5px;
 }
-input[type='date'] {
+.volunteer-input[type='date'] {
     padding: 4px 5px;
 }
 textarea {

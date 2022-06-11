@@ -9,11 +9,14 @@ if($status == 'approved'){
     $stmt = connect()->query($sql);
     $row = $stmt->fetch();
     $donor = $row['donorName'];
+    $email = $row['donorEmail'];
+
+    $user = "SELECT * FROM users WHERE userEmail = '$email'";
 
     if($row > 0){
-        $sql = "INSERT INTO approved_donation(Name,Phone,Address,Status) VALUES(?,?,?,?)";
+        $sql = "INSERT INTO approved_donation(uid,Name,Phone,Address,Status) VALUES(?,?,?,?,?)";
         $stmt = connect()->prepare($sql);
-        $stmt->execute([$row['donorName'],$row['donorPhone'],$row['donorAddress'],'Yet To Collect']);
+        $stmt->execute([$user['userID'], $row['donorName'],$row['donorPhone'],$row['donorAddress'],'Yet To Collect']);
          
         $sql = "DELETE FROM donation_req WHERE donateID = '$id'";
         $stmt = connect()->query($sql);
@@ -24,7 +27,7 @@ if($status == 'approved'){
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username ='deshcharity1@gmail.com';
-    $mail->Password ='Desh!@#Charity';
+    $mail->Password ='ytwmxjzihkifrzzw';
     $mail->SMTPSecure = 'tls';
     $mail->Port= 587;
 
@@ -49,11 +52,15 @@ elseif($status == 'rejected'){
     $sql = "SELECT * FROM donation_req WHERE donateID = '$id'";
     $stmt = connect()->query($sql);
     $row = $stmt->fetch();
+    $donor = $row['donorName'];
+    $email = $row['donorEmail'];
+
+    $user = "SELECT * FROM users WHERE userEmail = '$email'";
 
     if($row > 0){
-        $sql = "INSERT INTO rejected_donation(Name,Phone,Address) VALUES(?,?,?)";
+        $sql = "INSERT INTO rejected_donation(uid,Name,Phone,Address) VALUES(?,?,?,?)";
         $stmt = connect()->prepare($sql);
-        $stmt->execute([$row['donorName'],$row['donorPhone'],$row['donorAddress']]);
+        $stmt->execute([$user['userID'],$row['donorName'],$row['donorPhone'],$row['donorAddress']]);
 
         $sql = "DELETE FROM donation_req WHERE donateID = '$id'";
         $stmt = connect()->query($sql);
@@ -64,7 +71,7 @@ elseif($status == 'rejected'){
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username ='deshcharity1@gmail.com';
-    $mail->Password ='Desh!@#Charity';
+    $mail->Password ='ytwmxjzihkifrzzw';
     $mail->SMTPSecure = 'tls';
     $mail->Port= 587;
 

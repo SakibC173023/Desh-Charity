@@ -1,19 +1,22 @@
 <?php
 session_start();
-include_once 'assets/php/create-db.php';
-$db = new Dbh();
+include_once 'login/dbh_connect.php';
 
-    $status = $_GET['status'];
-    
+$status = $_GET['status'];
     if(isset($_SESSION['email'])){
         if(isset($_POST['submit'])){
             $name = $_POST['name'];
-            $email = $_POST['email'];
+            $email = $_SESSION['email'];
             $amount = $_POST['amount'];
             $sendNo = $_POST['number'];
-    
-            $sql = "INSERT INTO package(Name,Email,Amount,Send_number) VALUES('$name','$email','$amount','$sendNo')";
-            $stmt = $db->connect()->query($sql);
+
+            $sql = "SELECT * FROM users WHERE userEmail = '$email'";
+            $stmt = connect()->query($sql);
+            $user = $stmt->fetch();
+
+            $sql = "INSERT INTO package(uid,Name,Email,Amount,Send_number) VALUES(?,?,?,?,?)";
+            $stmt = connect()->prepare($sql);
+            $stmt->execute([$user['userID'],$name,$email,$amount,$sendNo]);
             header('location:index.php?packStts=package-submitted');
         }
     }else{
@@ -118,7 +121,7 @@ $db = new Dbh();
                                 <input type="text" id="name" name="name" required><br>
 
                                 <label for="email" style="color: white">Email:</label><br>
-                                <input type="email" id="email" name="email" required><br>
+                                <input type="email" id="email" name="email" value="<?php echo $_SESSION['email'] ?>"><br>
 
                                 <label for="amount" style="color: white">Amount:</label><br>
                                 <input type="text" id="amount" name="amount" class="fw-bold fs-5"
