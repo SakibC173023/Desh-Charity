@@ -42,6 +42,12 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="sponsor-child.php">Sponsor a Child</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="request-help.php">Request for help</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="volunteer.php">Be a Volunteer</a>
                             </li>
                             <li class="nav-item">
