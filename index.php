@@ -161,9 +161,7 @@ if (isset($_POST['add'])) {
                 <div class="border rounded shadow-lg p-4 d-flex flex-column align-items-center">
                     <div class="my-2"><i class="fas fa-hamburger fs-1" style="color: orange"></i></div>
                     <h4 class="fw-bold my-2"><a class="text-dark " href="donate.html">Donate Food</a></h4>
-                    <p class="text-center my-2 lh-lg">Ras effic itur metusga via suscipit consect eturerse adi
-                        unde
-                        omnis.
+                    <p class="text-center my-2 lh-lg">Donate your extra food which will help someone to satisfy his hunger.
                     </p>
                 </div>
             </div>
@@ -171,24 +169,21 @@ if (isset($_POST['add'])) {
                 <div class="border rounded shadow-lg p-4 d-flex flex-column align-items-center">
                     <div class="my-2" style="color: #00a4f5"><i class="fas fa-tshirt fs-1"></i></div>
                     <h4 class="fw-bold my-2"><a class="text-dark " href="donate.html" style="">Donate Clothes</a></h4>
-                    <p class="text-center my-2 lh-lg">Ras effic itur metusga via suscipit consect eturerse adi
-                        unde omnis.</p>
+                    <p class="text-center my-2 lh-lg">Your monthly donation will provide a child in need with tools for a better education.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-lg-0 mt-4">
                 <div class="border rounded shadow-lg p-4 d-flex flex-column align-items-center">
                     <div class="my-2"><i class="fas fa-shopping-bag fs-1" style="color: orangered"></i></div>
                     <h4 class="fw-bold my-2"><a class="text-dark " href="products.php">Buy Products</a></h4>
-                    <p class="text-center my-2 lh-lg">Ras effic itur metusga via suscipit consect eturerse adi
-                        unde omnis.</p>
+                    <p class="text-center my-2 lh-lg">Buys products from us, 25% of our profit will be given to Charity.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-lg-0 mt-4">
                 <div class="border rounded shadow-lg p-4 d-flex flex-column align-items-center">
                     <div class="my-2" style="color: #36b051"><i class="fas fa-user-plus fs-1"></i></div>
                     <h4 class="fw-bold my-2"><a class="text-dark " href="volunteer.php">Join as Volunteer</a></h4>
-                    <p class="text-center my-2 lh-lg">Ras effic itur metusga via suscipit consect eturerse adi
-                        unde omnis.</p>
+                    <p class="text-center my-2 lh-lg">Contribute to our charity platform to join as a volunteer.</p>
                 </div>
             </div>
         </div>
@@ -410,10 +405,7 @@ if (isset($_POST['add'])) {
                     </div>
                     <div class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
                         <h2 class="text-uppercase fw-bold">Join As Volunteer </h2>
-                        <p class="mt-4">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                            ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit.</p>
+                        <p class="mt-4">Those who want to join us as volunteers will be able to register with their address, area name, mobile number and NID</p>
                         <ul class="mt-4 pt-lg-1 list-unstyled">
                             <li><i class="fas fa-check-circle primary-clr pe-1"></i>Work with Desh Charity</li>
                             <li><i class="fas fa-check-circle primary-clr pe-1"></i>Gain Volunteering Experience</li>

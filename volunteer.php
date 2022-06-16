@@ -10,7 +10,6 @@
     <div class="testbox">
       <form class="volunteer-form" action="admin/volunteer-validation.php" method="POST">
         <div class="volunteer-banner">
-          <h1>Volunteer Signup</h1>
         </div>
         <br/>
         <p>The HELP Group is seeking volunteers to serve our community. Fill in the information below to indicate how you would like to become involved.</p>

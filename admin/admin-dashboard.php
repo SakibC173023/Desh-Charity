@@ -2,6 +2,7 @@
 include_once '../login/dbh_connect.php';
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,41 +25,43 @@ session_start();
 
 <body>
     <!-- header -->
-    <header class="">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <div class="container-fluid">
-            <a class="navbar-brand h3 fw-bold ps-lg-5 d-flex align-items-center" href="../index.php">
-                <a class="navbar-brand h3 fw-bold" href="../index.php"><i
-                        class="fas fa-hand-holding-heart  fs-1" style="color: red"></i> Desh Charity</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 pe-5 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-warning" aria-current="page" href="../index.php">Home</a>
-                        </li>
-                        <?php
-                            if(isset($_SESSION['admin'])){
-                                echo "<li class=\"nav-item\">
-                                        <a class=\"nav-link\" href=\"approved.php\">Collection Status</a>
-                                    </li>";
-                                echo "<li class=\"nav-item\">
-                                            <a class=\"nav-link\" href=\"admin-logout.php\">Logout</a>
-                                    </li>";
-                            }else{
-                                echo "<li class=\"nav-item\">
-                                <a class=\"nav-link\" href=\"login.php\">Login</a>
-                            </li>";
-                            }
-                        ?>
-                    </ul>
-                </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+        <a class="navbar-brand h3 fw-bold ps-lg-5 d-flex align-items-center" href="../index.php">
+            <a class="navbar-brand h3 fw-bold" href="../index.php"><i
+                    class="fas fa-hand-holding-heart  fs-1" style="color: red"></i> Desh Charity</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 pe-5 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../index.php">Home</a>
+                    </li>
+                    <?php
+                        if(isset($_SESSION['admin'])){
+                            echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"approved.php\">Collection Status</a>
+                                </li>";
+                            echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"volunteers.php\">Volunteer Lists</a>
+                                </li>";
+                            echo "<li class=\"nav-item\">
+                                        <a class=\"nav-link\" href=\"admin-logout.php\">Logout</a>
+                                </li>";
+                        }else{
+                            echo "<li class=\"nav-item\">
+                            <a class=\"nav-link\" href=\"login.php\">Login</a>
+                        </li>";
+                        }
+                    ?>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
 <main class="container-fluid mt-5 pt-5">
         <section>
@@ -166,7 +169,7 @@ session_start();
 
                 <!-- Approved Request Part -->
                 <div class="col-6 mx-auto shadow-lg rounded mt-5 p-3">
-                    <h2>Approved Log</h2>
+                    <h3>Approved Donation Log</h3>
                     <table class="table table-striped text-center">
                         <tr>
                             <th>Name</th>
@@ -194,7 +197,7 @@ session_start();
 
                 <!-- Rejected Request Part -->
                 <div class="col-5 mx-auto shadow-lg rounded mt-5 p-3">
-                    <h2>Rejected Log</h2>
+                    <h3>Rejected Donation Log</h3>
                     <table class="table table-striped text-center">
                         <tr>
                             <th>Name</th>
@@ -211,6 +214,64 @@ session_start();
                             <td><?php echo $row['Name'] ?></td>
                             <td><?php echo $row['Phone'] ?></td>
                             <td><?php echo $row['Address'] ?></td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </table>
+                </div>
+
+                <!-- Sponsor Request Part -->
+                <div class="col-5 mx-auto shadow-lg rounded mt-5 p-3">
+                    <h3>Sponsorship Request Log</h3>
+                    <table class="table table-striped text-center">
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Address</th>   
+                            <th>Comment</th>   
+                        </tr>
+                        <tr>
+                        <?php
+                            $sql = "SELECT * FROM sponsor_req";
+                            $stmt2 = connect()->query($sql);
+                            while($row = $stmt2->fetch())
+                            {
+                        ?>
+                            <td><?php echo $row['fname'] ?></td>
+                            <td><?php echo $row['phone'] ?></td>
+                            <td><?php echo $row['address'] ?></td>
+                            <td><?php echo $row['comment'] ?></td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </table>
+                </div>
+
+                <!-- Help Request Part -->
+                <div class="col-6 mx-auto shadow-lg rounded mt-5 p-3">
+                    <h3>Help Request Log</h3>
+                    <table class="table table-striped text-center">
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Address</th>   
+                            <th>Req Type</th>   
+                            <th>Reason</th>   
+                        </tr>
+                        <tr>
+                        <?php
+                            $sql = "SELECT * FROM help_req";
+                            $stmt2 = connect()->query($sql);
+                            while($row = $stmt2->fetch())
+                            {
+                        ?>
+                            <td><?php echo $row['name'] ?></td>
+                            <td><?php echo $row['phone'] ?></td>
+                            <td><?php echo $row['address'] ?></td>
+                            <td><?php echo $row['req_type'] ?></td>
+                            <td><?php echo $row['reason'] ?></td>
                         </tr>
                         <?php
                             }

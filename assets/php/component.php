@@ -27,7 +27,6 @@ function demoProduct($productname,$productprice,$productimg,$productid){
                                 </div>
                                 <h4><a class=\" \" href=\"\">$productname</a>
                                 </h4>
-                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <div
                                     class=\"top-content-border d-flex align-items-center justify-content-between mt-4 pt-4\">
                                     <h6>$$productprice</h6>

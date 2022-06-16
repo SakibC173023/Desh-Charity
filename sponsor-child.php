@@ -6,9 +6,9 @@
 <!-- Nav-bar End -->
 
 <!-- banner section -->
-<section id="home" class="banner py-5">
+<section id="home" class="banner mb-5">
     <div class="banner-content">
-        <div class="container py-5 mt-5">
+        <div class="container py-5 my-5">
             <div class="row d-flex align-items-center pt-sm-5 pt-4">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
                     <h1 class="mb-lg-4 mb-3 fw-bold">Help Bring A Sustainable <span

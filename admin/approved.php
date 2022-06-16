@@ -37,7 +37,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 pe-5 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active text-warning" aria-current="page" href="admin.php">Admin Home</a>
+                                <a class="nav-link active" aria-current="page" href="admin.php">Admin Home</a>
                             </li>
                         </ul>
                     </div>

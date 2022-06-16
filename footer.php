@@ -39,7 +39,7 @@
                         <li><a class=" " href="donate.php">Donate Us</a></li>
                         <li><a class=" " href="volunteer.php">Join As Volunteer</a></li>
                         <li><a class=" " href="package.php">Package</a></li>
-                        <li><a class=" " href="sponsor.php">Sponsor A Child</a></li>
+                        <li><a class=" " href="sponsor-child.php">Sponsor A Child</a></li>
                         <li><a class=" " href="about.php">About Us</a></li>
 
 
@@ -54,7 +54,7 @@
                         <li><a class=" " href="sponsor.php">Sponsor A Child</a></li>
                         <li><a class=" " href="products.php">Products</a></li>
                         <li><a class=" " href="donate.php">Donate Us</a></li>
-                        <li><a class=" " href="volunteer.php">Join As Volunteer</a></li>
+                        <li><a class=" " href="request-help.php">Request For Help</a></li>
 
                     </ul>
                 </div>

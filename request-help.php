@@ -6,17 +6,16 @@
 <!-- Nav-bar End -->
 
 <!-- banner section -->
-<section id="home" class="banner py-5">
+<section id="home" class="banner">
     <div class="banner-content">
-        <div class="container py-5 mt-5">
+        <div class="container py-5 my-5">
             <div class="row d-flex align-items-center pt-sm-5 pt-4">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
                     <h1 class="mb-lg-4 mb-3 fw-bold">How Can We Help? <span
                             class="d-block fw-normal text-warning">Please Inform Us</span>
                     </h1>
                     <p class="banner-sub">
-                        Do you wish to see an underprivileged community to meet their appetite?
-                        Please give us information about the hungry and helpless people around you, we want to extend helping hand to them</p>
+                        We will be happy if we can help you any means. To proceed further please help us giving some information. Tap the button below and fill up the form.</p>
                         <div class="d-flex align-items-center buttons-banner">
                             <a href="request-form.php" class="btn btn-style mt-lg-2"> Request For Help </a>
                         </div>
